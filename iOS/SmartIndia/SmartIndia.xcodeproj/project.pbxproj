@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B9B3D302768CF52BB311631 /* Pods_SmartIndia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8B983538F9FE9C401A3976 /* Pods_SmartIndia.framework */; };
+		9C8A82DE1E82C8EE005A0DF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A82DD1E82C8EE005A0DF1 /* AppDelegate.swift */; };
+		9C8A82E01E82C8EE005A0DF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A82DF1E82C8EE005A0DF1 /* ViewController.swift */; };
+		9C8A82E31E82C8EE005A0DF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8A82E11E82C8EE005A0DF1 /* Main.storyboard */; };
+		9C8A82E51E82C8EE005A0DF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8A82E41E82C8EE005A0DF1 /* Assets.xcassets */; };
+		9C8A82E81E82C8EE005A0DF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8A82E61E82C8EE005A0DF1 /* LaunchScreen.storyboard */; };
+		9C8A82F51E82D2AC005A0DF1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A82F01E82D2AC005A0DF1 /* CardView.swift */; };
+		9C8A82F71E82D2AC005A0DF1 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A82F21E82D2AC005A0DF1 /* MaterialTextField.swift */; };
+		9C8A82F81E82D2AC005A0DF1 /* RectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A82F31E82D2AC005A0DF1 /* RectView.swift */; };
+		9C8A82F91E82D2AC005A0DF1 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A82F41E82D2AC005A0DF1 /* TextField.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2D8B983538F9FE9C401A3976 /* Pods_SmartIndia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartIndia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C8A82DA1E82C8EE005A0DF1 /* SmartIndia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartIndia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C8A82DD1E82C8EE005A0DF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9C8A82DF1E82C8EE005A0DF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9C8A82E21E82C8EE005A0DF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9C8A82E41E82C8EE005A0DF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9C8A82E71E82C8EE005A0DF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9C8A82E91E82C8EE005A0DF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C8A82F01E82D2AC005A0DF1 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		9C8A82F21E82D2AC005A0DF1 /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
+		9C8A82F31E82D2AC005A0DF1 /* RectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectView.swift; sourceTree = "<group>"; };
+		9C8A82F41E82D2AC005A0DF1 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		AAB0E05991ECCAED3BCB814C /* Pods-SmartIndia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartIndia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartIndia/Pods-SmartIndia.debug.xcconfig"; sourceTree = "<group>"; };
+		E0507EB2A3273A581281CEA4 /* Pods-SmartIndia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartIndia.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartIndia/Pods-SmartIndia.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9C8A82D71E82C8EE005A0DF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B9B3D302768CF52BB311631 /* Pods_SmartIndia.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		68FF223E0C35CB5D271554A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D8B983538F9FE9C401A3976 /* Pods_SmartIndia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9C8A82D11E82C8EE005A0DF1 = {
+			isa = PBXGroup;
+			children = (
+				9C8A82DC1E82C8EE005A0DF1 /* SmartIndia */,
+				9C8A82DB1E82C8EE005A0DF1 /* Products */,
+				AD03B5015A2546B82090FA18 /* Pods */,
+				68FF223E0C35CB5D271554A7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9C8A82DB1E82C8EE005A0DF1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C8A82DA1E82C8EE005A0DF1 /* SmartIndia.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C8A82DC1E82C8EE005A0DF1 /* SmartIndia */ = {
+			isa = PBXGroup;
+			children = (
+				9C8A82EF1E82D2AC005A0DF1 /* Views */,
+				9C8A82DD1E82C8EE005A0DF1 /* AppDelegate.swift */,
+				9C8A82DF1E82C8EE005A0DF1 /* ViewController.swift */,
+				9C8A82E11E82C8EE005A0DF1 /* Main.storyboard */,
+				9C8A82E41E82C8EE005A0DF1 /* Assets.xcassets */,
+				9C8A82E61E82C8EE005A0DF1 /* LaunchScreen.storyboard */,
+				9C8A82E91E82C8EE005A0DF1 /* Info.plist */,
+			);
+			path = SmartIndia;
+			sourceTree = "<group>";
+		};
+		9C8A82EF1E82D2AC005A0DF1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C8A82F01E82D2AC005A0DF1 /* CardView.swift */,
+				9C8A82F21E82D2AC005A0DF1 /* MaterialTextField.swift */,
+				9C8A82F31E82D2AC005A0DF1 /* RectView.swift */,
+				9C8A82F41E82D2AC005A0DF1 /* TextField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AD03B5015A2546B82090FA18 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AAB0E05991ECCAED3BCB814C /* Pods-SmartIndia.debug.xcconfig */,
+				E0507EB2A3273A581281CEA4 /* Pods-SmartIndia.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C8A82D91E82C8EE005A0DF1 /* SmartIndia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C8A82EC1E82C8EE005A0DF1 /* Build configuration list for PBXNativeTarget "SmartIndia" */;
+			buildPhases = (
+				23F9726F601B40B9F3C06F36 /* [CP] Check Pods Manifest.lock */,
+				9C8A82D61E82C8EE005A0DF1 /* Sources */,
+				9C8A82D71E82C8EE005A0DF1 /* Frameworks */,
+				9C8A82D81E82C8EE005A0DF1 /* Resources */,
+				BD195257D14ED5C43EB7C8F2 /* [CP] Embed Pods Frameworks */,
+				A80428526EADA20395B78172 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartIndia;
+			productName = SmartIndia;
+			productReference = 9C8A82DA1E82C8EE005A0DF1 /* SmartIndia.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C8A82D21E82C8EE005A0DF1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Eldhose Lomy";
+				TargetAttributes = {
+					9C8A82D91E82C8EE005A0DF1 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 5NV6DXE6AU;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9C8A82D51E82C8EE005A0DF1 /* Build configuration list for PBXProject "SmartIndia" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9C8A82D11E82C8EE005A0DF1;
+			productRefGroup = 9C8A82DB1E82C8EE005A0DF1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C8A82D91E82C8EE005A0DF1 /* SmartIndia */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9C8A82D81E82C8EE005A0DF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8A82E81E82C8EE005A0DF1 /* LaunchScreen.storyboard in Resources */,
+				9C8A82E51E82C8EE005A0DF1 /* Assets.xcassets in Resources */,
+				9C8A82E31E82C8EE005A0DF1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23F9726F601B40B9F3C06F36 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A80428526EADA20395B78172 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartIndia/Pods-SmartIndia-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD195257D14ED5C43EB7C8F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartIndia/Pods-SmartIndia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9C8A82D61E82C8EE005A0DF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8A82E01E82C8EE005A0DF1 /* ViewController.swift in Sources */,
+				9C8A82F71E82D2AC005A0DF1 /* MaterialTextField.swift in Sources */,
+				9C8A82F91E82D2AC005A0DF1 /* TextField.swift in Sources */,
+				9C8A82F51E82D2AC005A0DF1 /* CardView.swift in Sources */,
+				9C8A82F81E82D2AC005A0DF1 /* RectView.swift in Sources */,
+				9C8A82DE1E82C8EE005A0DF1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9C8A82E11E82C8EE005A0DF1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C8A82E21E82C8EE005A0DF1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9C8A82E61E82C8EE005A0DF1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C8A82E71E82C8EE005A0DF1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9C8A82EA1E82C8EE005A0DF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9C8A82EB1E82C8EE005A0DF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9C8A82ED1E82C8EE005A0DF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAB0E05991ECCAED3BCB814C /* Pods-SmartIndia.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5NV6DXE6AU;
+				INFOPLIST_FILE = SmartIndia/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.techions.SmartIndia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		9C8A82EE1E82C8EE005A0DF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0507EB2A3273A581281CEA4 /* Pods-SmartIndia.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5NV6DXE6AU;
+				INFOPLIST_FILE = SmartIndia/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.techions.SmartIndia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9C8A82D51E82C8EE005A0DF1 /* Build configuration list for PBXProject "SmartIndia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C8A82EA1E82C8EE005A0DF1 /* Debug */,
+				9C8A82EB1E82C8EE005A0DF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C8A82EC1E82C8EE005A0DF1 /* Build configuration list for PBXNativeTarget "SmartIndia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C8A82ED1E82C8EE005A0DF1 /* Debug */,
+				9C8A82EE1E82C8EE005A0DF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9C8A82D21E82C8EE005A0DF1 /* Project object */;
+}

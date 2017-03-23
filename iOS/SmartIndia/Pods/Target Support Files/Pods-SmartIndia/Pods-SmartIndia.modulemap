@@ -1,0 +1,6 @@
+framework module Pods_SmartIndia {
+  umbrella header "Pods-SmartIndia-umbrella.h"
+
+  export *
+  module * { export * }
+}
