@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0B9B3D302768CF52BB311631 /* Pods_SmartIndia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8B983538F9FE9C401A3976 /* Pods_SmartIndia.framework */; };
 		9C8A82DE1E82C8EE005A0DF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A82DD1E82C8EE005A0DF1 /* AppDelegate.swift */; };
-		9C8A82E01E82C8EE005A0DF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A82DF1E82C8EE005A0DF1 /* ViewController.swift */; };
 		9C8A82E31E82C8EE005A0DF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8A82E11E82C8EE005A0DF1 /* Main.storyboard */; };
 		9C8A82E51E82C8EE005A0DF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8A82E41E82C8EE005A0DF1 /* Assets.xcassets */; };
 		9C8A82E81E82C8EE005A0DF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C8A82E61E82C8EE005A0DF1 /* LaunchScreen.storyboard */; };
@@ -17,13 +16,15 @@
 		9C8A82F71E82D2AC005A0DF1 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A82F21E82D2AC005A0DF1 /* MaterialTextField.swift */; };
 		9C8A82F81E82D2AC005A0DF1 /* RectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A82F31E82D2AC005A0DF1 /* RectView.swift */; };
 		9C8A82F91E82D2AC005A0DF1 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A82F41E82D2AC005A0DF1 /* TextField.swift */; };
+		9CF175A61E845836000B42CE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF175A51E845836000B42CE /* BaseViewController.swift */; };
+		9CF175A81E845863000B42CE /* TeamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF175A71E845863000B42CE /* TeamListViewController.swift */; };
+		9CF175AA1E845914000B42CE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF175A91E845914000B42CE /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2D8B983538F9FE9C401A3976 /* Pods_SmartIndia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartIndia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C8A82DA1E82C8EE005A0DF1 /* SmartIndia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartIndia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C8A82DD1E82C8EE005A0DF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9C8A82DF1E82C8EE005A0DF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9C8A82E21E82C8EE005A0DF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9C8A82E41E82C8EE005A0DF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C8A82E71E82C8EE005A0DF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -32,6 +33,9 @@
 		9C8A82F21E82D2AC005A0DF1 /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 		9C8A82F31E82D2AC005A0DF1 /* RectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectView.swift; sourceTree = "<group>"; };
 		9C8A82F41E82D2AC005A0DF1 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		9CF175A51E845836000B42CE /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		9CF175A71E845863000B42CE /* TeamListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListViewController.swift; sourceTree = "<group>"; };
+		9CF175A91E845914000B42CE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AAB0E05991ECCAED3BCB814C /* Pods-SmartIndia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartIndia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartIndia/Pods-SmartIndia.debug.xcconfig"; sourceTree = "<group>"; };
 		E0507EB2A3273A581281CEA4 /* Pods-SmartIndia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartIndia.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartIndia/Pods-SmartIndia.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,9 +81,9 @@
 		9C8A82DC1E82C8EE005A0DF1 /* SmartIndia */ = {
 			isa = PBXGroup;
 			children = (
+				9CF175A41E845836000B42CE /* Controllers */,
 				9C8A82EF1E82D2AC005A0DF1 /* Views */,
 				9C8A82DD1E82C8EE005A0DF1 /* AppDelegate.swift */,
-				9C8A82DF1E82C8EE005A0DF1 /* ViewController.swift */,
 				9C8A82E11E82C8EE005A0DF1 /* Main.storyboard */,
 				9C8A82E41E82C8EE005A0DF1 /* Assets.xcassets */,
 				9C8A82E61E82C8EE005A0DF1 /* LaunchScreen.storyboard */,
@@ -97,6 +101,16 @@
 				9C8A82F41E82D2AC005A0DF1 /* TextField.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9CF175A41E845836000B42CE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9CF175A51E845836000B42CE /* BaseViewController.swift */,
+				9CF175A71E845863000B42CE /* TeamListViewController.swift */,
+				9CF175A91E845914000B42CE /* HomeViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		AD03B5015A2546B82090FA18 /* Pods */ = {
@@ -232,12 +246,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C8A82E01E82C8EE005A0DF1 /* ViewController.swift in Sources */,
 				9C8A82F71E82D2AC005A0DF1 /* MaterialTextField.swift in Sources */,
+				9CF175A81E845863000B42CE /* TeamListViewController.swift in Sources */,
 				9C8A82F91E82D2AC005A0DF1 /* TextField.swift in Sources */,
+				9CF175AA1E845914000B42CE /* HomeViewController.swift in Sources */,
 				9C8A82F51E82D2AC005A0DF1 /* CardView.swift in Sources */,
 				9C8A82F81E82D2AC005A0DF1 /* RectView.swift in Sources */,
 				9C8A82DE1E82C8EE005A0DF1 /* AppDelegate.swift in Sources */,
+				9CF175A61E845836000B42CE /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
