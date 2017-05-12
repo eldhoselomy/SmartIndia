@@ -2,80 +2,89 @@
 //  NetworkManager.swift
 //  Globedin
 //
-//  Created by Eldhose Lomy on 05/02/17.
+//  Created by Eldhose Lomy on 22/02/17.
 //  Copyright © 2017 Eldhose Lomy. All rights reserved.
-//
 
 import Foundation
 import Alamofire
+import ObjectMapper
 import SwiftyJSON
 
-class NetwokManager{
+class NetworkManager{
     
-    //Singleton instance of Network Manager
-    //Default Debug mode
-    static let sharedInstance = NetwokManager.getInstance()
-    
-    let baseURL:String!
-    let webURL:String!
-    
-    fileprivate init(isRelease:Bool = false){
-        if isRelease{
-            //Release data
-            baseURL         =   "http://dev.globedin.com/"
-            webURL          =   "http://www.globedin.com/"
-
-        }else{
-            //Local data
-            baseURL         =   "http://dev.globedin.com/"
-            webURL          =   "http://www.globedin.com/"
-            
-            
-        }
+    static let sharedManager = NetworkManager()
+    //Blocking the initializer to outside of class
+    private init(){
         
     }
     
-    fileprivate static func getInstance()->NetwokManager{
-        return NetwokManager(isRelease: true)
+    
+    private func fetchDataFromServer(requestType: HTTPMethod,url: String,parameters:[String:Any]?,headers: [String:String]? ,completion: @escaping ((JSON?)-> Void)) {
+        //Network Availablity Check
+//        guard Utils.isNetworkReachable() else{
+//            if !ServiceURL.offline.contains(url){
+//                Utils.showMessage(Message.noInternet)
+//            }
+//            completion(nil)
+//            return
+//        }
+        //Custom manager
+        let manager = Alamofire.SessionManager.default
+        
+        // Proceeds if network available
+        //Alamofire Request
+        manager.request(url, method: requestType, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .responseJSON { response in
+                
+                //Invalid Response
+                guard let status = response.response?.statusCode, status < 300 else {
+                   // self.showErrors(errorcode: response.response?.statusCode ?? 500)
+                    completion(nil)
+                    return
+                }
+                
+                //Success
+                if let value = response.result.value{
+                    completion(JSON(value))
+                }else{
+                    completion(nil)
+                }
+        }
     }
+    
+    //serialize json data to models
+    private func responseSerializer<T>(dataJSON: JSON?, completion:((T?) ->Void)) where T:Mappable{
+        if let json = dataJSON?.description{
+            if let object = Mapper<T>().map(JSONString : json){
+                completion(object)
+            }else{
+                completion(nil)
+            }
+        }else{
+            completion(nil)
+        }
+    }
+    
+    //serialize json data to array of objects
+    private func responseSerializer<T>(dataJSON: JSON?, completion:(([T]?) ->Void)) where T:Mappable{
+        if let json = dataJSON{
+            var result:[T] = []
+            for data in json{
+                if let object = Mapper<T>().map(JSONString : data.1.description){
+                    result.append(object)
+                }
+            }
+            completion(result)
+        }else{
+            completion(nil)
+        }
+    }
+    
+    
+
     
 }
 
-class NetworkRequest{
-    fileprivate let MAX_RETRY_COUNT = 3
-    fileprivate let MAX_DELAY:UInt32 = 7
-    fileprivate var retryCount = 0
-    var request : Request!
-    
-    internal func performNetwork(_ requestType : HTTPMethod,url:String, param:  [String : AnyObject]?,completion: @escaping ((_ isComplete: Bool, _ jsonObj: JSON?) -> Void)){
-        print("\(url) Request initiated")
-        request = Alamofire.request(url, method: requestType, parameters: param , encoding: JSONEncoding.default)
-            .responseJSON { response in
-                if let json = response.result.value
-                {
-                    completion(true, JSON(json))
-                }
-                else{
-                    //check retry available
-                    if let error = response.result.error as? NSError, error.code != Constants.kRequestCancelledCode{
-                        self.retryCount += 1
-                        if self.retryCount <= self.MAX_RETRY_COUNT{
-                            let delay = Double(arc4random_uniform(self.MAX_DELAY))
-                            print("\(url) retry in \(delay) seconds")
-                            Utils.delay(delay, closure: {
-                                self.performNetwork(requestType, url: url, param: param, completion: completion)
-                            })
-                        }else{
-                            completion(false, nil)
-                            print("\(url) Request failed")
-                        }
-                        
-                        
-                    }
-                    
-                    
-                }
-                
-        }
-    }
-}
+
+
+

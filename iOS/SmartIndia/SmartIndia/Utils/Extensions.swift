@@ -105,8 +105,3 @@ extension MDSnackbar {
     }
 }
 
-extension UIViewController : QRDelegate{
-    func scannedData(string: String) {
-        print(string)
-    }
-}

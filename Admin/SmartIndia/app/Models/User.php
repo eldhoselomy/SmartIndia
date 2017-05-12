@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User;
 
 class User extends BaseModel
 {
@@ -13,7 +12,7 @@ class User extends BaseModel
      *
      * @var array
      */
-    protected $table='user';
+    protected $table='users';
     protected $fillable = [
         'name', 'email', 'password','affiliate_id','phone'
     ];
@@ -23,5 +22,5 @@ class User extends BaseModel
      *
      * @var array
      */
-    
+    protected $hidden = array('password','created_at', 'updated_at','status');
 }

@@ -14,19 +14,7 @@ enum MessageType{
     case error
     case none
     
-    var messageColor: UIColor {
-        switch self {
-        case .success:
-            return UIColor.green
-        case .warning:
-            return UIColor.orange
-        case .error:
-            return UIColor.red
-        case .none:
-            return UIColor.groupTableViewBackground
-        }
-        
-    }
+
 }
 
 enum ValidationRule{

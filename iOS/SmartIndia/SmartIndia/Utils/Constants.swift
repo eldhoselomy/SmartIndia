@@ -10,7 +10,6 @@ import Foundation
 
 class Constants{
     
-    static let kStoryboard = UIStoryboard(name: "Main", bundle: nil)
     static let kRequestCancelledCode = -999
     static let kUserId = "UserId"
     static let kGoogleMapKey = "AIzaSyC7yjb5m9BkdhVPzbMkWijX105_MqsqybE"
