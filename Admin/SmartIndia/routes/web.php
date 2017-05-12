@@ -14,5 +14,4 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('user/test', 'LoginController@test');
