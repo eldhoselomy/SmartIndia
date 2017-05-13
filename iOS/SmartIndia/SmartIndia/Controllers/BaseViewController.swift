@@ -22,7 +22,37 @@ class BaseViewController: UIViewController {
     
 
     func setup(){
+        if hasMenu(){
+            
+        }else{
+            let backButton = UIButton(frame: CGRect(x: 4, y: 4, width: 22, height: 22))
+            backButton.setImage(#imageLiteral(resourceName: "back"), for: .normal)
+            backButton.tintColor = UIColor.white
+            backButton.addTarget(self, action: #selector(back), for:.touchUpInside)
+            let barButtonItem = UIBarButtonItem(customView: backButton)
+            self.navigationItem.leftBarButtonItem = barButtonItem
+        }
+        
+    }
     
+    func isValid()->Bool{
+        return true
+    }
+    
+    func back(){
+        if let navigationController = self.navigationController{
+            navigationController.popViewController(animated: true)
+        }else{
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func toggleMenu(){
+        
+    }
+    
+    func hasMenu()->Bool{
+        return false
     }
     /*
     // MARK: - Navigation

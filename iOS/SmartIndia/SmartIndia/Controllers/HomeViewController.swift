@@ -16,11 +16,14 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var feedbackView:UIView!
     @IBOutlet weak var settingsView:UIView!
     @IBOutlet weak var logoutView:UIView!
+    @IBOutlet weak var greetingLabel:UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func hasMenu() -> Bool {
+        return true
     }
 
     override func setup() {
@@ -41,9 +44,15 @@ class HomeViewController: BaseViewController {
     func handleTap(_ sender:UITapGestureRecognizer){
         if let view  = sender.view{
             switch view.tag {
+            case 0:
+                self.performSegue(withIdentifier: "TopicVC", sender: self)
             case 1:
                 self.performSegue(withIdentifier: "teamVC", sender: self)
                 break
+            case 3:
+                self.performSegue(withIdentifier: "feedbackVC", sender: self)
+            case 5:
+                logout()
             default:
                 break
             }
@@ -54,6 +63,24 @@ class HomeViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        greetingLabel.text = Utils.getGreetingString()
+    }
+    func logout(){
+        Utils.getConfirmation(on: self, text: "Are you sure? you want to logout.") { (isCancelled) in
+            if !isCancelled{
+                if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+                    //clear data
+                    let defaults = UserDefaults.standard
+                    defaults.removeObject(forKey: Constants.kUserId)
+                    defaults.synchronize()
+                    appDelegate.showLogin()
+                }
+            }
+        }
+        
+    }
 
     /*
     // MARK: - Navigation

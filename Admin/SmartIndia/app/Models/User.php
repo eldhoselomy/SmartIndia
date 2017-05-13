@@ -22,5 +22,5 @@ class User extends BaseModel
      *
      * @var array
      */
-    protected $hidden = array('password','created_at', 'updated_at','status');
+    protected $hidden = array('password','created_at', 'updated_at');
 }

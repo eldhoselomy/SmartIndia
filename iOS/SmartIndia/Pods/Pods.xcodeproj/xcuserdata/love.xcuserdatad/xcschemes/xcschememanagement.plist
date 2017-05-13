@@ -9,7 +9,32 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>BFPaperButton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ImagePicker-ImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ImagePicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -24,12 +49,27 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>NBMaterialDialogIOS-NBMaterialDialogIOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>NBMaterialDialogIOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-SmartIndia.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ReachabilitySwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,7 +82,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>03DFF9327299BD61A4529F0C2A9B1433</key>
+		<key>09A62655F66AE53A474D64E42E6E9DF9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0AD0BB4A92A7E15CDA2D402E6AF3639E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +97,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3BFF9F651824EF6D7159B996DAA71D25</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4DC059E04CBA98AEDDB5C34E02D551E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6349D5418FF4BCAD6FFB9F11150896F2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>644FB37CE1A7513552FB77B2F85A2E63</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>85A1F6A6DA3DB813190B19F57C4D7DCC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9169FA3FD6208F52613CB35460D0FB1F</key>
+		<key>99DD94AC5D7632F460435BDAA389DD4D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -73,6 +138,21 @@
 			<true/>
 		</dict>
 		<key>B43918AB915242B851ABEFB5D70BE0AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C4944FEC314D1A66588651D006273ADE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C5B80060FE8C664DF08841000F41D515</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DEFDA3818D3176D2FD6C20497CC29804</key>
 		<dict>
 			<key>primary</key>
 			<true/>

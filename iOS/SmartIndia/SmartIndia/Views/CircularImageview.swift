@@ -10,7 +10,7 @@ import UIKit
 
 class CircularImageview: UIImageView {
     
-    @IBInspectable  var circleColor : UIColor = Color.themeColor
+    @IBInspectable  var circleColor : UIColor = UIColor.red
     
     override func layoutSubviews() {
         super.layoutSubviews()

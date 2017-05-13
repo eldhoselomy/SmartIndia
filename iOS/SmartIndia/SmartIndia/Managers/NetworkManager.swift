@@ -21,13 +21,11 @@ class NetworkManager{
     
     private func fetchDataFromServer(requestType: HTTPMethod,url: String,parameters:[String:Any]?,headers: [String:String]? ,completion: @escaping ((JSON?)-> Void)) {
         //Network Availablity Check
-//        guard Utils.isNetworkReachable() else{
-//            if !ServiceURL.offline.contains(url){
-//                Utils.showMessage(Message.noInternet)
-//            }
-//            completion(nil)
-//            return
-//        }
+        guard Utils.isNetworkReachable() else{
+            Utils.showMessage("No internet")
+            completion(nil)
+            return
+        }
         //Custom manager
         let manager = Alamofire.SessionManager.default
         
@@ -38,7 +36,7 @@ class NetworkManager{
                 
                 //Invalid Response
                 guard let status = response.response?.statusCode, status < 300 else {
-                   // self.showErrors(errorcode: response.response?.statusCode ?? 500)
+                    Utils.showMessage("Oops something went wrong")
                     completion(nil)
                     return
                 }
@@ -80,7 +78,135 @@ class NetworkManager{
         }
     }
     
+    // MARK: - Login
+    internal func login(request: LoginRequest,completion: @escaping ((User?) -> Void)) {
+        fetchDataFromServer(requestType: .post, url: ServiceURL.Login.URL, parameters: request.getParameters(), headers: nil) { dataJSON in
+            if let status = dataJSON?["status"].int{
+                switch status{
+                case 400:
+                    Utils.showMessage("Oops something went wrong")
+                case 401:
+                    Utils.showMessage("Invalid Credentials")
+                case 404:
+                    Utils.showMessage("User not found")
+                default:
+                    break
+                }
+            }
+            if let json = dataJSON?["user"]{
+                self.responseSerializer(dataJSON: json  , completion: completion)
+                return
+            }
+            completion(nil)
+            
+            
+        }
+    }
     
+    // MARK: - List Teams
+    internal func listTeam(request: [String:String],completion: @escaping (([Team]?) -> Void)) {
+        fetchDataFromServer(requestType: .post, url: ServiceURL.ListTeams.URL, parameters: request, headers: nil) { dataJSON in
+            if let json = dataJSON?["teams"]{
+                self.responseSerializer(dataJSON: json  , completion: completion)
+                return
+            }
+            completion(nil)
+            
+        }
+    }
+    
+    // MARK: - Add Team
+    internal func addTeam(request: [String:String],completion: @escaping ((Team?) -> Void)) {
+        fetchDataFromServer(requestType: .post, url: ServiceURL.AddTeam.URL, parameters: request, headers: nil) { dataJSON in
+            
+            if let status = dataJSON?["status"].int{
+                switch status{
+                case 400:
+                    Utils.showMessage("Oops something went wrong")
+                case 401:
+                    Utils.showMessage("You have already created maximum number of teams")
+                default:
+                    break
+                }
+            }
+            if let json = dataJSON?["team"]{
+                self.responseSerializer(dataJSON: json  , completion: completion)
+                return
+            }
+            completion(nil)
+            
+        }
+    }
+
+    // MARK: - List Members
+    internal func listMembers(request: [String:String],completion: @escaping (([Member]?) -> Void)) {
+        fetchDataFromServer(requestType: .post, url: ServiceURL.ListMembers.URL, parameters: request, headers: nil) { dataJSON in
+            if let json = dataJSON?["members"]{
+                self.responseSerializer(dataJSON: json  , completion: completion)
+                return
+            }
+            completion(nil)
+            
+        }
+    }
+    
+    // MARK: - Add Member
+    internal func addMember(request: [String:Any],completion: @escaping ((Member?) -> Void)) {
+        fetchDataFromServer(requestType: .post, url: ServiceURL.AddMember.URL, parameters: request, headers: nil) { dataJSON in
+            
+            if let status = dataJSON?["status"].int{
+                switch status{
+                case 400:
+                    Utils.showMessage("Oops something went wrong")
+                case 401:
+                    Utils.showMessage("You have already exceeds the member limit in team")
+                default:
+                    break
+                }
+            }
+            if let json = dataJSON?["member"]{
+                self.responseSerializer(dataJSON: json  , completion: completion)
+                return
+            }
+            completion(nil)
+            
+        }
+    }
+    
+    // MARK: - Add Feedback
+    internal func addFeedback(request: [String:Any],completion: @escaping ((Feedback?) -> Void)) {
+        fetchDataFromServer(requestType: .post, url: ServiceURL.AddFeedback.URL, parameters: request, headers: nil) { dataJSON in
+            
+            if let status = dataJSON?["status"].int{
+                switch status{
+                case 400:
+                    Utils.showMessage("Oops something went wrong")
+                default:
+                    break
+                }
+            }
+            if let json = dataJSON?["feedback"]{
+                self.responseSerializer(dataJSON: json  , completion: completion)
+                return
+            }
+            completion(nil)
+            
+        }
+    }
+
+    
+    // MARK: - List Topics
+    internal func listTopics(completion: @escaping (([Topic]?) -> Void)) {
+        fetchDataFromServer(requestType: .get, url: ServiceURL.ListTopics.URL, parameters: nil, headers: nil) { dataJSON in
+            if let json = dataJSON?["topics"]{
+                self.responseSerializer(dataJSON: json  , completion: completion)
+                return
+            }
+            completion(nil)
+            
+        }
+    }
+
 
     
 }

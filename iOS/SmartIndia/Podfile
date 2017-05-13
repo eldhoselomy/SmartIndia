@@ -13,5 +13,12 @@ target 'SmartIndia' do
   pod 'MaterialControls'
   pod 'ObjectMapper'
   pod 'MaterialKit', :git => 'https://github.com/faresbh/MaterialKit',:branch => "swift3"
+  pod 'NBMaterialDialogIOS'
+  pod 'ImagePicker'
+  pod 'ReachabilitySwift', '~> 3'
+  pod 'Kingfisher'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+  pod 'MaterialControls'
 
 end

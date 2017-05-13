@@ -8,6 +8,7 @@
 
 import Foundation
 import MaterialControls
+import ObjectMapper
 
 
 internal typealias Scale = (dx: CGFloat, dy: CGFloat)
@@ -104,4 +105,6 @@ extension MDSnackbar {
         self.addTarget(self, action: #selector(MDSnackbar.triggerActionHandleBlock))
     }
 }
+
+
 

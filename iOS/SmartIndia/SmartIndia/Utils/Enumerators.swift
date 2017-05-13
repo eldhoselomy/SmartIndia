@@ -8,13 +8,28 @@
 
 import Foundation
 
+
+enum ServiceURL: String{
+    case Login = "login"
+    case Register = "register"
+    case ListTeams = "list_teams"
+    case AddTeam = "add_team"
+    case ListMembers = "list_members"
+    case AddMember = "add_member"
+    case AddFeedback = "add_feedback"
+    case ListTopics = "list_topics"
+
+    
+    var URL:String{
+        return Constants.baseURL + self.rawValue
+    }
+    
+}
 enum MessageType{
     case success
     case warning
     case error
     case none
-    
-
 }
 
 enum ValidationRule{

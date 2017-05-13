@@ -11,16 +11,26 @@ import ObjectMapper
 
 class User : BaseRequest{
     
-    dynamic var name = "Manu"
+    dynamic var name                    = ""
+    dynamic var email                   = ""
+    dynamic var password                = ""
+    dynamic var mobile                  = ""
+    dynamic var affiliateID             = ""
+    dynamic var status                  = 0
     
     required convenience init?(map: Map) {
         self.init()
     }
-}
-
-extension User : Mappable{
     
-    func mapping(map: Map) {
-        
+    
+    override func mapping(map: Map) {
+        name            <- map["name"]
+        email           <- map["email"]
+        mobile          <- map["phone"]
+        affiliateID     <- map["affiliate_id"]
+        id              <- (map["id"],integerTransform)
+        status          <- map["status"]
     }
 }
+
+

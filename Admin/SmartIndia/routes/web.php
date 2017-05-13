@@ -23,4 +23,9 @@ Route::post('add_team', 'WebServiceController@add_team');
 Route::post('list_teams', 'WebServiceController@list_teams');
 Route::post('add_member', 'WebServiceController@add_member');
 Route::post('list_members', 'WebServiceController@list_members');
+Route::post('add_topics', 'WebServiceController@add_topics');
+Route::get('list_topics', 'WebServiceController@list_topics');
+
+Route::post('select_team_topic', 'WebServiceController@select_team_topic');
+Route::post('add_feedback', 'WebServiceController@add_feedback');
 
