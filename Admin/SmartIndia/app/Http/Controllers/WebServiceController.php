@@ -59,7 +59,7 @@ class WebServiceController extends Controller
         $password = $request->get('password');
         $team = Team::where('team_name', $email)
                 ->first();
-        
+        $parent_id = $team->user_id;
         if($team) {
             if($team->team_token == $password) {
                 $status = 200;
@@ -71,7 +71,7 @@ class WebServiceController extends Controller
             //Not Found
             $status = 404;
         }
-        $responseArray = $status == 200 ? array('status' => 200, 'team' => $team) : array('status' => $status);
+        $responseArray = $status == 200 ? array('status' => 200, 'team' => $team,'parent_id' => $parent_id) : array('status' => $status);
         return response()->json($responseArray);
     }
     

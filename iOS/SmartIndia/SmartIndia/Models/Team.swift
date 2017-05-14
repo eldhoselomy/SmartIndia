@@ -16,6 +16,7 @@ class Team : BaseRequest{
     dynamic var topicID                 = ""
     dynamic var teamToken               = ""
     dynamic var status                  = ""
+
     
     required convenience init?(map: Map) {
         self.init()

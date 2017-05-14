@@ -105,6 +105,16 @@ class Utils{
     }
     
     //Save default userID
+    static func saveParentID(id:String){
+        defaults.set(id, forKey: Constants.kParentID)
+        defaults.synchronize()
+    }
+    
+    static func getParrentID()->String{
+        return defaults.object(forKey: Constants.kParentID) as? String ?? ""
+    }
+    
+    //Save default userID
     static func saveTeamID(id:String){
         defaults.set(id, forKey: Constants.kTeamID)
         defaults.synchronize()

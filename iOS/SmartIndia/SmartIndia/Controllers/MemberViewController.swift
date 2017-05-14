@@ -8,6 +8,7 @@
 
 import UIKit
 import ObjectMapper
+import MaterialControls
 
 class MemberViewController: BaseViewController {
     
@@ -23,11 +24,26 @@ class MemberViewController: BaseViewController {
     @IBOutlet weak var saveButton:UIButton!
     @IBOutlet weak var profileImage:UIImageView!
     @IBOutlet weak var profileBackground:UIImageView!
+    @IBOutlet weak var dobPlaceholder:UIView!
     
+    
+    @IBOutlet weak var maleButton:UIButton!
+    @IBOutlet weak var femaleButton:UIButton!
+    @IBOutlet weak var maleLabel:UILabel!
+    @IBOutlet weak var femaleLabel:UILabel!
+    
+    var datePicker = MDDatePickerDialog()
     var team:Team?
     var member:Member?
     var isEdit = false
     var textFields:[Textfield] =  []
+    
+    var isMale:Bool = true{
+        didSet{
+            maleButton.backgroundColor = isMale ? maleButton.tintColor : UIColor.lightGray
+            femaleButton.backgroundColor = isMale ? UIColor.lightGray : femaleButton.tintColor
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,14 +73,35 @@ class MemberViewController: BaseViewController {
             enableEdit(editable: false)
             saveButton.isHidden = true
         }
+        let tap  = UITapGestureRecognizer(target: self, action: #selector(selectDob))
+        dobPlaceholder.isUserInteractionEnabled = true
+        dobPlaceholder.addGestureRecognizer(tap)
+        datePicker.delegate = self
+
+        let maleTap = UITapGestureRecognizer(target: self, action: #selector(maleAction))
+        maleLabel.addGestureRecognizer(maleTap)
+        let femaleTap = UITapGestureRecognizer(target: self, action: #selector(femaleAction))
+        femaleLabel.addGestureRecognizer(femaleTap)
     }
     
+    func maleAction(){
+        isMale = true
+    }
+    func femaleAction(){
+        isMale = false
+    }
     func enableEdit(editable:Bool){
         let title = editable ? "Save" : "Edit"
         saveButton.setTitle(title, for: .normal)
+        dobPlaceholder.isUserInteractionEnabled = editable
         for view in textFields{
             view.isEnabled = editable
         }
+    }
+    
+    func selectDob(){
+        print("select dob")
+        datePicker.show()
     }
     
     @IBAction func saveAction(_ sender: UIButton){
@@ -97,7 +134,7 @@ class MemberViewController: BaseViewController {
         member.email = emailTextField.text!
         member.phone = phoneTextField.text!
         member.dob = dobTextField.text!
-        member.sex = genderTextField.text!.uppercased() == "MALE" ? "1" : "0"
+        member.sex = isMale ? "1" : "0"
         member.department = departmentTextField.text!
         member.semester = semesterTextField.text!
         member.registerNumber = registerNumberTextField.text!
@@ -114,4 +151,11 @@ class MemberViewController: BaseViewController {
     }
     */
 
+}
+
+extension MemberViewController: MDDatePickerDialogDelegate{
+    
+    func datePickerDialogDidSelect(_ date: Date) {
+        dobTextField.text = Utils.dateToString(date: date)
+    }
 }

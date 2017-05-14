@@ -16,13 +16,10 @@ class Constants{
     static let kUsername = "Username"
     static let kEmail = "Email"
     static let kTeamID = "TeamID"
-    
-    static let kGoogleMapKey = "AIzaSyC7yjb5m9BkdhVPzbMkWijX105_MqsqybE"
-    static let kGooglePlacesKey = "AIzaSyAhYgr17sImPoBGz5udIg6yUjdXy85vUJA"
-    static let kMinimumZoom:Float = 18
+    static let kParentID = "ParentID"
     static let kStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
-    static let displayDateFormat = "dd MM yyyy"
+    static let displayDateFormat = "dd MMM yyyy"
     static let displayTimeFormat = "hh mm a"
     static var dateFormatForFileName = "yyyyMMddHHmmssSSS"
     

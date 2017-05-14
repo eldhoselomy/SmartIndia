@@ -81,6 +81,9 @@ class NetworkManager{
     // MARK: - Login
     internal func login(request: LoginRequest,completion: @escaping ((User?) -> Void)) {
         fetchDataFromServer(requestType: .post, url: ServiceURL.Login.URL, parameters: request.getParameters(), headers: nil) { dataJSON in
+            if let parentUserID = dataJSON?["parent_id"].int{
+                
+            }
             if let status = dataJSON?["status"].int{
                 switch status{
                 case 400:

@@ -83,8 +83,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let topic = Utils.isAdmin() ? "/topics/admin" : "/topics/team"
             FIRMessaging.messaging().subscribe(toTopic: topic)
             if let token = Utils.getNotificationToken(){
+                let userID = Utils.getDefaultUserID().isEmpty ? Utils.getParrentID() : Utils.getDefaultUserID()
                 let request = [
-                    "user_id" : Utils.getDefaultUserID(),
+                    "user_id" : userID,
                     "firebase_token" : token
                 ]
                 NetworkManager.sharedManager.registerNotification(request: request, completion: { (isComplete) in
