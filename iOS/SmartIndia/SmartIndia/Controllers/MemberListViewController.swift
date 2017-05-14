@@ -7,16 +7,25 @@
 //
 
 import UIKit
+import ImagePicker
 
 class MemberListViewController: BaseViewController {
 
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var noDataView:UIView!
     @IBOutlet weak var proceedView:UIView!
+    @IBOutlet weak var mediaView:UIView!
     
     var team:Team?
     var members:[Member] = []
     var selectedMember:Member?
+    
+    var picker:ImagePickerController{
+        let pic = ImagePickerController()
+        pic.imageLimit = 1
+        pic.delegate = self
+        return pic
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +45,7 @@ class MemberListViewController: BaseViewController {
                 }
                 if let team = self.team{
                     self.proceedView.isHidden = !(team.status == "0" && self.members.count == 5)
+                    self.mediaView.isHidden = !(team.status == "2" && self.members.count == 5)
                 }
             }
             Utils.hideProgress()
@@ -68,6 +78,11 @@ class MemberListViewController: BaseViewController {
         self.performSegue(withIdentifier: "SaveTeam", sender: self)
     }
     
+    @IBAction func uploadFile(_ sender:UIButton){
+        print("upload")
+        self.present(picker, animated: true, completion: nil)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -76,6 +91,9 @@ class MemberListViewController: BaseViewController {
             memberVC.team = team
             memberVC.member = selectedMember
             selectedMember = nil
+        }
+        if let saveTeamVC = segue.destination as? SaveTeamViewController{
+            saveTeamVC.team = team
         }
     }
     
@@ -98,5 +116,28 @@ extension MemberListViewController :  UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedMember = members[indexPath.row]
         self.performSegue(withIdentifier: "profileVC", sender: self)
+    }
+}
+
+extension MemberListViewController : ImagePickerDelegate{
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]){
+        
+    }
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]){
+        if let image = images.first {
+            Utils.showProgress()
+            NetworkManager.sharedManager.pushImage(image: Utils.imageToBase64(image: image),teamID: team?.id ?? "", completion: { (isComplete) in
+                if isComplete{
+                    Utils.showMessage("Media uploaded")
+                }else{
+                    Utils.showMessage("Media upload failed")
+                }
+                imagePicker.dismiss(animated: true, completion: nil)
+            })
+        }
+        
+    }
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController){
+        
     }
 }

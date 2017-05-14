@@ -11,6 +11,7 @@ import Foundation
 
 enum ServiceURL: String{
     case Login = "login"
+    case MemberLogin = "member_login"
     case Register = "register"
     case ListTeams = "list_teams"
     case AddTeam = "add_team"
@@ -19,6 +20,10 @@ enum ServiceURL: String{
     case AddFeedback = "add_feedback"
     case ListTopics = "list_topics"
     case ListNotification = "list_notifications"
+    case SaveTeam = "select_team_topic"
+    case PushImages = "push_image"
+    case RegisterNotification = "register_notifications"
+    case UnregisterNotification = "unregister_notifications"
 
     
     var URL:String{
@@ -33,34 +38,4 @@ enum MessageType{
     case none
 }
 
-enum ValidationRule{
-    
-    case Mandatory
-    case Number
-}
 
-enum FieldType{
-    case Name
-    case Address1
-    case Address2
-    case Place
-    case Landmark
-    case Country
-    case Zip
-    case Phone
-    case Email
-    case Website
-    case Image
-    case Date
-    case Time
-    case Description
-    case Designation
-    
-    case Submit
-}
-
-enum ProfileTab{
-    case Home
-    case Bussiness
-    case Event
-}

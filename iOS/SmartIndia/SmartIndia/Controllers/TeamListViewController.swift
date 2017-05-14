@@ -28,12 +28,15 @@ class TeamListViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let request = ["user_id" : Utils.getDefaultUserID()]
+        let request = [
+            "user_id" : Utils.getDefaultUserID(),
+            "team_id" : Utils.getDefaultTeamID()
+        ]
         Utils.showProgress()
         NetworkManager.sharedManager.listTeam(request: request) { (teams) in
             if let teams = teams{
                 self.teams = teams
-                if self.teams.count > 2{
+                if self.teams.count > 2 || (!Utils.isAdmin()){
                     self.navigationItem.rightBarButtonItem = nil
                 }
                 self.tableView.reloadData()
@@ -65,6 +68,10 @@ class TeamListViewController: BaseViewController {
         self.performSegue(withIdentifier: "addTeamVC", sender: self)
     }
 
+    
+    @IBAction func showTeamList(_ segue:UIStoryboardSegue) {
+        
+    }
     
     // MARK: - Navigation
 

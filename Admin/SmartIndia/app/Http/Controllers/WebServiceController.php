@@ -12,6 +12,9 @@ use App\Models\Member;
 use App\Models\Topic;
 use App\Models\Feedback;
 use App\Models\Notification;
+use App\Models\Media;
+use App\Models\DeviceNotification;
+
 use Log;
 
 class WebServiceController extends Controller
@@ -43,6 +46,32 @@ class WebServiceController extends Controller
             $status = 404;
         }
         $responseArray = $status == 200 ? array('status' => 200, 'user' => $user) : array('status' => $status);
+        return response()->json($responseArray);
+    }
+    
+    /**
+     * Member Login
+     *
+     */
+    public function member_login(Request $request) {
+        $status = 400;
+        $email = $request->get('email');
+        $password = $request->get('password');
+        $team = Team::where('team_name', $email)
+                ->first();
+        
+        if($team) {
+            if($team->team_token == $password) {
+                $status = 200;
+            }else{
+                //Invalid Password
+                $status = 401;
+            }
+        }else{
+            //Not Found
+            $status = 404;
+        }
+        $responseArray = $status == 200 ? array('status' => 200, 'team' => $team) : array('status' => $status);
         return response()->json($responseArray);
     }
     
@@ -97,8 +126,14 @@ class WebServiceController extends Controller
      */
     public function list_teams(Request $request){
         $user_id = $request->get('user_id');
-        $teams = Team::where('user_id', $user_id)
+        $team_id = $request->get('team_id');
+        if($user_id){
+            $teams = Team::where('user_id', $user_id)
             ->get();
+        }else{
+            $teams = Team::where('id', $team_id)->get();
+        }
+        
         $responseArray = array('status' => 200, 'teams' => $teams);
         return response()->json($responseArray);
     }
@@ -170,6 +205,7 @@ class WebServiceController extends Controller
      */
     public function select_team_topic(Request $request){
         $status = 400;
+        $topic_id = $request->get('topic_id');
         $team_id = $request->get('team_id');
         $team_name = $request->get('team_name');
         $team = Team::where('id', $team_id)->first();
@@ -178,16 +214,17 @@ class WebServiceController extends Controller
             $status = 400;
         }
         else if($team_list){
+            //Team name not available
             $status = 405;
         }else{
             $team = Team::where('id', $team_id)->first();
-        if($team) {
-            $team->topic_id = 10;
-            $team->team_name = $team_name;
-            $team->team_token = $request->get('team_token');
-            $team->save();
-            $status = 200;
-        }
+            if($team) {
+                $team->topic_id = $topic_id;
+                $team->team_name = $team_name;
+                $team->team_token = $request->get('team_token');
+                $team->status = 2;
+                $status = $team->save() ? 200 : 400;
+            }
         }
         
         $responseArray = $status == 200 ? array('status' => 200, 'team' => $team) : array('status' => $status);
@@ -218,6 +255,62 @@ class WebServiceController extends Controller
         $notifications = Notification::where('status', 1)
             ->get();
         $responseArray = array('status' => 200, 'notifications' => $notifications);
+        return response()->json($responseArray);
+    }
+    
+    /**
+     * Push Image
+     *
+     */
+    public function push_image(Request $request){
+        $team_id = $request->get('team_id');
+        $filename = uniqid('smartIN', true) . '.png';
+        $image = $request->get('image');
+        $ifp = fopen('Media/'.$filename, 'wb' ); 
+        fwrite( $ifp, base64_decode( $image ) );
+        fclose( $ifp ); 
+        $responseArray =array('status' => 200, 'imageURL' => $filename);
+        $media = new Media();
+        $media->team_id = $team_id;
+        $media->file_name = $filename;
+        $media->status = 1;
+        $media->save();
+        return response()->json($responseArray);
+    }
+
+
+    /**
+     * Register for Notifications
+     *
+     */
+    public function register_notifications(Request $request){
+        $token = $request->get('firebase_token');
+        $device_notification = DeviceNotification::where('firebase_token',$token)->first();
+        if($device_notification){
+            $device_notification->status = 1;
+            $status = $device_notification->save() ? 200 : 400;
+        }else{
+            $device_notification = new DeviceNotification();
+            $device_notification->fill($request->all());
+            $status = $device_notification->save() ? 200 : 400;
+        }
+
+        $responseArray = array('status' => $status);
+        return response()->json($responseArray);
+    }
+    
+    /**
+     * Un Register for Notifications
+     *
+     */
+    public function unregister_notifications(Request $request){
+        $token = $request->get('firebase_token');
+        $device_notification = DeviceNotification::where('firebase_token',$token)->first();
+        if($device_notification){
+            $device_notification->status = 0;
+            $status = $device_notification->save() ? 200 : 400;
+        }
+        $responseArray = array('status' => $status);
         return response()->json($responseArray);
     }
 

@@ -49,7 +49,9 @@ class FeedbackViewController: BaseViewController {
         let feedback = Feedback()
         feedback.title = titleTextview.text!
         feedback.comment = commentTextView.text!
-        feedback.type = "admin"
+        feedback.type = Utils.isAdmin() ? "admin" : "team"
+        feedback.userID = Utils.getDefaultUserID()
+        feedback.teamID = Utils.getDefaultTeamID()
         return Mapper().toJSON(feedback)
     }
     

@@ -17,7 +17,7 @@ class CreateFeedbackTable extends Migration
         Schema::create('feedback', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->nullable()->default(null);
-            $table->integer('member_id')->nullable()->default(null);
+            $table->integer('team_id')->nullable()->default(null);
             $table->string('user_type')->nullable()->default('admin');
             $table->string('title');
             $table->longText('comments');

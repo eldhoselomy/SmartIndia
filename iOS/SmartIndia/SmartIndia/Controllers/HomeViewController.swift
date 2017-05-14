@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseMessaging
 
 class HomeViewController: BaseViewController {
     
@@ -53,6 +54,8 @@ class HomeViewController: BaseViewController {
                 self.performSegue(withIdentifier: "NotificationVC", sender: self)
             case 3:
                 self.performSegue(withIdentifier: "feedbackVC", sender: self)
+            case 4:
+                self.performSegue(withIdentifier: "SettingsVC", sender: self)
             case 5:
                 logout()
             default:
@@ -76,7 +79,21 @@ class HomeViewController: BaseViewController {
                     //clear data
                     let defaults = UserDefaults.standard
                     defaults.removeObject(forKey: Constants.kUserId)
+                    defaults.removeObject(forKey: Constants.kUsername)
+                    defaults.removeObject(forKey: Constants.kEmail)
+                    defaults.removeObject(forKey: Constants.kTeamID)
                     defaults.synchronize()
+                    let topic = Utils.isAdmin() ? "/topics/admin" : "/topics/team"
+                    FIRMessaging.messaging().unsubscribe(fromTopic: topic)
+                    if let token = Utils.getNotificationToken(){
+                        let request = [
+                            "user_id" : Utils.getDefaultUserID(),
+                            "firebase_token" : token
+                        ]
+                        NetworkManager.sharedManager.registerNotification(request: request, completion: { (isComplete) in
+                            //
+                        })
+                    }                            
                     appDelegate.showLogin()
                 }
             }

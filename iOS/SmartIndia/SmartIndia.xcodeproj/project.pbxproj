@@ -47,6 +47,10 @@
 		9CD319861EC839690074693F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD319851EC839690074693F /* Notification.swift */; };
 		9CD319891EC83BC10074693F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CD319881EC83BC10074693F /* GoogleService-Info.plist */; };
 		9CD3198B1EC840E50074693F /* NotificationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD3198A1EC840E50074693F /* NotificationsListViewController.swift */; };
+		9CD3198E1EC84D570074693F /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD3198D1EC84D570074693F /* NotificationTableViewCell.swift */; };
+		9CD319901EC859560074693F /* SwiftPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD3198F1EC859560074693F /* SwiftPicker.swift */; };
+		9CD319941EC8A01E0074693F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD319931EC8A01E0074693F /* SettingsTableViewController.swift */; };
+		9CD319961EC8A36E0074693F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD319951EC8A36E0074693F /* WebViewController.swift */; };
 		9CF175A81E845863000B42CE /* TeamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF175A71E845863000B42CE /* TeamListViewController.swift */; };
 		9CF175AA1E845914000B42CE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF175A91E845914000B42CE /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -92,9 +96,13 @@
 		9CD319811EC7B4D30074693F /* SaveTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveTeamViewController.swift; sourceTree = "<group>"; };
 		9CD319831EC7B7A70074693F /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9CD319851EC839690074693F /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
-		9CD319871EC83A3E0074693F /* SmartIndia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartIndia.entitlements; sourceTree = "<group>"; };
 		9CD319881EC83BC10074693F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9CD3198A1EC840E50074693F /* NotificationsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsListViewController.swift; sourceTree = "<group>"; };
+		9CD3198C1EC84B1E0074693F /* SmartIndia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartIndia.entitlements; sourceTree = "<group>"; };
+		9CD3198D1EC84D570074693F /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		9CD3198F1EC859560074693F /* SwiftPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftPicker.swift; sourceTree = "<group>"; };
+		9CD319931EC8A01E0074693F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		9CD319951EC8A36E0074693F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		9CF175A71E845863000B42CE /* TeamListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListViewController.swift; sourceTree = "<group>"; };
 		9CF175A91E845914000B42CE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AAB0E05991ECCAED3BCB814C /* Pods-SmartIndia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartIndia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartIndia/Pods-SmartIndia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -142,7 +150,7 @@
 		9C8A82DC1E82C8EE005A0DF1 /* SmartIndia */ = {
 			isa = PBXGroup;
 			children = (
-				9CD319871EC83A3E0074693F /* SmartIndia.entitlements */,
+				9CD3198C1EC84B1E0074693F /* SmartIndia.entitlements */,
 				9CC6B9221EC64E9F00867D6C /* Utils */,
 				9CC6B91F1EC64E9F00867D6C /* Managers */,
 				9CC6B9331EC7147300867D6C /* Models */,
@@ -212,6 +220,7 @@
 				9CD3196B1EC751D40074693F /* TeamTableViewCell.swift */,
 				9CD319711EC762560074693F /* MemberTableViewCell.swift */,
 				9CD3197B1EC78DE00074693F /* TopicTableViewCell.swift */,
+				9CD3198D1EC84D570074693F /* NotificationTableViewCell.swift */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -219,20 +228,23 @@
 		9CF175A41E845836000B42CE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9CF175A71E845863000B42CE /* TeamListViewController.swift */,
-				9CF175A91E845914000B42CE /* HomeViewController.swift */,
 				9CC6B91D1EC64DBB00867D6C /* BaseViewController.swift */,
 				9CD319661EC743570074693F /* LoginViewController.swift */,
+				9CD319831EC7B7A70074693F /* RegisterViewController.swift */,
+				9CF175A91E845914000B42CE /* HomeViewController.swift */,
+				9CF175A71E845863000B42CE /* TeamListViewController.swift */,
 				9CD3196D1EC7593F0074693F /* AddTeamViewController.swift */,
 				9CD3196F1EC75FD20074693F /* MemberListViewController.swift */,
 				9CD319731EC766AD0074693F /* MemberViewController.swift */,
+				9CD319811EC7B4D30074693F /* SaveTeamViewController.swift */,
 				9CD319751EC77B6B0074693F /* FeedbackViewController.swift */,
 				9CD319791EC78AEE0074693F /* TopicViewController.swift */,
 				9CD3197D1EC799320074693F /* TopicItemViewController.swift */,
-				9CD3197F1EC7A4310074693F /* ConfirmationViewController.swift */,
-				9CD319811EC7B4D30074693F /* SaveTeamViewController.swift */,
-				9CD319831EC7B7A70074693F /* RegisterViewController.swift */,
 				9CD3198A1EC840E50074693F /* NotificationsListViewController.swift */,
+				9CD319931EC8A01E0074693F /* SettingsTableViewController.swift */,
+				9CD3198F1EC859560074693F /* SwiftPicker.swift */,
+				9CD3197F1EC7A4310074693F /* ConfirmationViewController.swift */,
+				9CD319951EC8A36E0074693F /* WebViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -281,7 +293,7 @@
 				TargetAttributes = {
 					9C8A82D91E82C8EE005A0DF1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = BL72VCZA77;
+						DevelopmentTeam = H4CEBLYLMB;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -382,6 +394,7 @@
 				9C8A82F71E82D2AC005A0DF1 /* MaterialTextField.swift in Sources */,
 				9CD319761EC77B6B0074693F /* FeedbackViewController.swift in Sources */,
 				9CD3198B1EC840E50074693F /* NotificationsListViewController.swift in Sources */,
+				9CD3198E1EC84D570074693F /* NotificationTableViewCell.swift in Sources */,
 				9CD3197E1EC799320074693F /* TopicItemViewController.swift in Sources */,
 				9CF175A81E845863000B42CE /* TeamListViewController.swift in Sources */,
 				9CC6B9431EC715E200867D6C /* Team.swift in Sources */,
@@ -406,10 +419,13 @@
 				9CC6B9471EC7182F00867D6C /* Topic.swift in Sources */,
 				9CD319741EC766AD0074693F /* MemberViewController.swift in Sources */,
 				9CC6B91E1EC64DBB00867D6C /* BaseViewController.swift in Sources */,
+				9CD319901EC859560074693F /* SwiftPicker.swift in Sources */,
 				9CD319721EC762560074693F /* MemberTableViewCell.swift in Sources */,
 				9C8A82F81E82D2AC005A0DF1 /* RectView.swift in Sources */,
 				9C8A82DE1E82C8EE005A0DF1 /* AppDelegate.swift in Sources */,
 				9CC6B92C1EC64E9F00867D6C /* Constants.swift in Sources */,
+				9CD319961EC8A36E0074693F /* WebViewController.swift in Sources */,
+				9CD319941EC8A01E0074693F /* SettingsTableViewController.swift in Sources */,
 				9CC6B92E1EC64E9F00867D6C /* Extensions.swift in Sources */,
 				9CC6B9451EC716C100867D6C /* Member.swift in Sources */,
 				9CD319701EC75FD20074693F /* MemberListViewController.swift in Sources */,
@@ -536,7 +552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SmartIndia/SmartIndia.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = BL72VCZA77;
+				DEVELOPMENT_TEAM = H4CEBLYLMB;
 				INFOPLIST_FILE = SmartIndia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -554,7 +570,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SmartIndia/SmartIndia.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = BL72VCZA77;
+				DEVELOPMENT_TEAM = H4CEBLYLMB;
 				INFOPLIST_FILE = SmartIndia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

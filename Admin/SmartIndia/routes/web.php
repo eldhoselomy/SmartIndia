@@ -18,6 +18,7 @@ Route::get('user/test', 'LoginController@test');
 
 //Service 
 Route::post('login', 'WebServiceController@login');
+Route::post('member_login', 'WebServiceController@member_login');
 Route::post('register', 'WebServiceController@register');
 Route::post('add_team', 'WebServiceController@add_team');
 Route::post('list_teams', 'WebServiceController@list_teams');
@@ -29,4 +30,6 @@ Route::get('list_topics', 'WebServiceController@list_topics');
 Route::get('list_notifications', 'WebServiceController@list_notifications');
 Route::post('select_team_topic', 'WebServiceController@select_team_topic');
 Route::post('add_feedback', 'WebServiceController@add_feedback');
-
+Route::post('push_image', 'WebServiceController@push_image');
+Route::post('register_notifications', 'WebServiceController@register_notifications');
+Route::post('unregister_notifications', 'WebServiceController@unregister_notifications');

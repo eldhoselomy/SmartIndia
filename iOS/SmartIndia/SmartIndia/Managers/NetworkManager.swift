@@ -103,6 +103,32 @@ class NetworkManager{
         }
     }
     
+    // MARK: - Member Login
+    internal func memberLogin(request: LoginRequest,completion: @escaping ((Team?) -> Void)) {
+        fetchDataFromServer(requestType: .post, url: ServiceURL.MemberLogin.URL, parameters: request.getParameters(), headers: nil) { dataJSON in
+            if let status = dataJSON?["status"].int{
+                switch status{
+                case 400:
+                    Utils.showMessage("Oops something went wrong")
+                case 401:
+                    Utils.showMessage("Invalid Credentials")
+                case 404:
+                    Utils.showMessage("User not found")
+                default:
+                    break
+                }
+            }
+            if let json = dataJSON?["team"]{
+                self.responseSerializer(dataJSON: json  , completion: completion)
+                return
+            }
+            completion(nil)
+            
+            
+        }
+    }
+
+    
     // MARK: - Register
     internal func register(request: [String:Any],completion: @escaping ((User?) -> Void)) {
         fetchDataFromServer(requestType: .post, url: ServiceURL.Register.URL, parameters: request, headers: nil) { dataJSON in
@@ -240,6 +266,67 @@ class NetworkManager{
             }
             completion(nil)
             
+        }
+    }
+
+    // MARK: - Save Team
+    internal func saveTeam(request: [String:Any],completion: @escaping ((Team?) -> Void)) {
+        fetchDataFromServer(requestType: .post, url: ServiceURL.SaveTeam.URL, parameters: request, headers: nil) { dataJSON in
+            
+            if let status = dataJSON?["status"].int{
+                switch status{
+                case 400:
+                    Utils.showMessage("Oops something went wrong")
+                case 405:
+                    Utils.showMessage("Team name not available")
+                default:
+                    break
+                }
+            }
+            if let json = dataJSON?["team"]{
+                self.responseSerializer(dataJSON: json  , completion: completion)
+                return
+            }
+            completion(nil)
+            
+        }
+    }
+
+    // MARK: - Push Images
+    internal func pushImage(image:String,teamID:String,completion: @escaping ((Bool) -> Void)) {
+        let param = [
+            "image" : image,
+            "team_id" : teamID
+        ]
+        fetchDataFromServer(requestType: .post, url: ServiceURL.PushImages.URL, parameters: param, headers: nil) { (dataJSON) in
+            if let status = dataJSON?["status"].int, status == 200{
+                completion(true)
+                return
+            }
+            completion(false)
+        }
+    }
+    
+    
+    // MARK: - Register Notification
+    internal func registerNotification(request:[String:Any],completion: @escaping ((Bool) -> Void)) {
+        fetchDataFromServer(requestType: .post, url: ServiceURL.RegisterNotification.URL, parameters: request, headers: nil) { (dataJSON) in
+            if let status = dataJSON?["status"].int, status == 200{
+                completion(true)
+                return
+            }
+            completion(false)
+        }
+    }
+    
+    // MARK: - UNregister Notification
+    internal func unRegisterNotification(request:[String:Any],completion: @escaping ((Bool) -> Void)) {
+        fetchDataFromServer(requestType: .post, url: ServiceURL.UnregisterNotification.URL, parameters: request, headers: nil) { (dataJSON) in
+            if let status = dataJSON?["status"].int, status == 200{
+                completion(true)
+                return
+            }
+            completion(false)
         }
     }
 

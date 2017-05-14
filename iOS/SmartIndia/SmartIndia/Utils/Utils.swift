@@ -12,6 +12,8 @@ import SwiftyJSON
 import MaterialControls
 import ReachabilitySwift
 import NBMaterialDialogIOS
+import FirebaseMessaging
+import Firebase
 
 
 class Utils{
@@ -86,6 +88,9 @@ class Utils{
         if let _ = defaults.object(forKey: Constants.kUserId) as? String{
             return true
         }
+        if let _ = defaults.object(forKey: Constants.kTeamID) as? String{
+            return true
+        }
         return false
     }
     
@@ -96,13 +101,40 @@ class Utils{
     }
     
     static func getDefaultUserID()->String{
-        return defaults.object(forKey: Constants.kUserId) as? String ?? "0"
+        return defaults.object(forKey: Constants.kUserId) as? String ?? ""
+    }
+    
+    //Save default userID
+    static func saveTeamID(id:String){
+        defaults.set(id, forKey: Constants.kTeamID)
+        defaults.synchronize()
+    }
+    
+    static func getDefaultTeamID()->String{
+        return defaults.object(forKey: Constants.kTeamID) as? String ?? ""
+    }
+    
+    static func isAdmin()->Bool{
+        if let _ = defaults.object(forKey: Constants.kUserId) as? String{
+            return true
+        }
+        return false
+    }
+    
+
+    static func saveUser(name:String,email:String){
+        defaults.set(name, forKey: Constants.kUsername)
+        defaults.set(email, forKey: Constants.kEmail)
+        defaults.synchronize()
+    }
+    
+    static func getUser()->(name:String,email:String){
+        return ((defaults.object(forKey: Constants.kUsername) as? String ?? ""),(defaults.object(forKey: Constants.kEmail) as? String ?? ""))
     }
 
-
-
     static func imageToBase64(image: UIImage) -> String {
-        let data = UIImagePNGRepresentation(image)
+        let resizedImage = image.resized(toWidth: 600) ?? image
+        let data = UIImagePNGRepresentation(resizedImage)
         return data?.base64EncodedString() ?? ""
         
     }
@@ -147,6 +179,21 @@ class Utils{
             string = "Early sleep and early wake up gives health and makes you grow. Good Night!"
         }
         return string
+    }
+    
+    static func openURL(url:String,title:String,controller:UIViewController){
+        let webVC = Constants.kStoryboard.instantiateViewController(withIdentifier: "WebVC") as! WebViewController
+        webVC.title = title
+        webVC.urlString = url
+        controller.navigationController?.pushViewController(webVC, animated: true)
+    }
+    
+    static func getNotificationToken()->String?{
+        let token = FIRInstanceID.instanceID().token()
+        if let _ = token{
+            return ("\(token)")
+        }
+        return nil
     }
     
 }

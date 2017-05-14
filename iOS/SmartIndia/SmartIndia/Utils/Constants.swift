@@ -13,6 +13,10 @@ class Constants{
     
     static let kRequestCancelledCode = -999
     static let kUserId = "UserId"
+    static let kUsername = "Username"
+    static let kEmail = "Email"
+    static let kTeamID = "TeamID"
+    
     static let kGoogleMapKey = "AIzaSyC7yjb5m9BkdhVPzbMkWijX105_MqsqybE"
     static let kGooglePlacesKey = "AIzaSyAhYgr17sImPoBGz5udIg6yUjdXy85vUJA"
     static let kMinimumZoom:Float = 18

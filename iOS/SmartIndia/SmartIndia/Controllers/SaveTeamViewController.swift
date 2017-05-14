@@ -11,9 +11,16 @@ import UIKit
 class SaveTeamViewController: BaseViewController {
 
     @IBOutlet weak var topicTextField:Textfield!
+    @IBOutlet weak var topicPlaceHolder:UIView!
     @IBOutlet weak var nameTextField:Textfield!
     @IBOutlet weak var passwordTextField:Textfield!
     
+    var team:Team?
+    var topics:[Topic] = []
+    var data:[String] = []
+    var swiftPicker:SwiftPicker!
+    var selectedTopic:Topic?
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -26,10 +33,76 @@ class SaveTeamViewController: BaseViewController {
     override func setup() {
         super.setup()
         self.title = "Save Team"
+        Utils.showProgress()
+        NetworkManager.sharedManager.listTopics { (topics) in
+            if let topics = topics{
+                self.topics = topics
+                for topic in topics{
+                    self.data.append(topic.name)
+                }
+            }
+            Utils.hideProgress()
+        }
+        
+        let tap  = UITapGestureRecognizer(target: self, action: #selector(selectTopic))
+        topicPlaceHolder.isUserInteractionEnabled = true
+        topicPlaceHolder.addGestureRecognizer(tap)
+        swiftPicker = Constants.kStoryboard.instantiateViewController(withIdentifier: "SwiftPicker") as? SwiftPicker
+        swiftPicker.swiftPickerDelegate = self
+        
+    }
+    
+    func selectTopic(){
+        swiftPicker.items = data
+        self.present(swiftPicker, animated: true, completion: nil)
+    }
+    
+    func getRequest()->[String:String]{
+        let param = [
+                    "team_id" : team?.id ?? "",
+                     "team_name" : nameTextField.text!.lowercased(),
+                     "team_token" : passwordTextField.text!,
+                     "topic_id" : selectedTopic?.id ?? ""
+        ]
+        
+        return param
     }
     
     @IBAction func saveTeam(_ sender:UIButton){
-        self.back()
+        if isValid(){
+            Utils.showProgress()
+            NetworkManager.sharedManager.saveTeam(request: getRequest(), completion: { (team) in
+                if let _ = team{
+                    Utils.showMessage("Team Details saved")
+                    self.performSegue(withIdentifier: "BackToTeams", sender: self)
+                }
+                Utils.hideProgress()
+            })
+        }
+    }
+    
+    
+    
+    
+    override func isValid() -> Bool {
+        if selectedTopic == nil{
+            Utils.showMessage("Please choose a topic")
+            return false
+        }
+        if nameTextField.text!.isEmpty{
+            Utils.showMessage("Please provide a team name")
+            return false
+        }else{
+            if !nameTextField.text!.lowercased().hasPrefix("team"){
+                Utils.showMessage("team name shound start with 'team' prefix")
+                return false
+            }
+        }
+        if passwordTextField.text!.characters.count < 6{
+            Utils.showMessage("Password strength is weak")
+            return false
+        }
+        return true
     }
 
     /*
@@ -42,4 +115,11 @@ class SaveTeamViewController: BaseViewController {
     }
     */
 
+}
+
+extension SaveTeamViewController : SwiftPickerDelegate{
+    func selectedItemAtIndex(_ swiftPicker: SwiftPicker, item: String, index: Int) {
+        topicTextField.text = item
+        selectedTopic = topics[index]
+    }
 }
