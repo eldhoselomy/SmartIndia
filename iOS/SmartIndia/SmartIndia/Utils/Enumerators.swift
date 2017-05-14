@@ -18,6 +18,7 @@ enum ServiceURL: String{
     case AddMember = "add_member"
     case AddFeedback = "add_feedback"
     case ListTopics = "list_topics"
+    case ListNotification = "list_notifications"
 
     
     var URL:String{

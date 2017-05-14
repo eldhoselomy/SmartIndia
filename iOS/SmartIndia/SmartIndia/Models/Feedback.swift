@@ -26,7 +26,7 @@ class Feedback : BaseRequest{
     override func mapping(map: Map) {
         title           <- map["title"]
         comment         <- map["comments"]
-        type            <- map["description"]
+        type            <- map["user_type"]
         id              <- (map["id"],integerTransform)
         memberID        <- (map["member_id"],integerTransform)
         userID          <- (map["user_id"],integerTransform)

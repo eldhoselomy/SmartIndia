@@ -49,6 +49,8 @@ class HomeViewController: BaseViewController {
             case 1:
                 self.performSegue(withIdentifier: "teamVC", sender: self)
                 break
+            case 2:
+                self.performSegue(withIdentifier: "NotificationVC", sender: self)
             case 3:
                 self.performSegue(withIdentifier: "feedbackVC", sender: self)
             case 5:

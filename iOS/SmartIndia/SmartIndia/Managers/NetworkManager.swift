@@ -230,6 +230,19 @@ class NetworkManager{
         }
     }
 
+    
+    // MARK: - List Notifications
+    internal func listNotifications(completion: @escaping (([Notification]?) -> Void)) {
+        fetchDataFromServer(requestType: .get, url: ServiceURL.ListNotification.URL, parameters: nil, headers: nil) { dataJSON in
+            if let json = dataJSON?["notifications"]{
+                self.responseSerializer(dataJSON: json  , completion: completion)
+                return
+            }
+            completion(nil)
+            
+        }
+    }
+
 
     
 }
