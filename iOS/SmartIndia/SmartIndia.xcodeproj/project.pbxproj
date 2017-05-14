@@ -42,6 +42,8 @@
 		9CD3197C1EC78DE00074693F /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD3197B1EC78DE00074693F /* TopicTableViewCell.swift */; };
 		9CD3197E1EC799320074693F /* TopicItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD3197D1EC799320074693F /* TopicItemViewController.swift */; };
 		9CD319801EC7A4310074693F /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD3197F1EC7A4310074693F /* ConfirmationViewController.swift */; };
+		9CD319821EC7B4D30074693F /* SaveTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD319811EC7B4D30074693F /* SaveTeamViewController.swift */; };
+		9CD319841EC7B7A70074693F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD319831EC7B7A70074693F /* RegisterViewController.swift */; };
 		9CF175A81E845863000B42CE /* TeamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF175A71E845863000B42CE /* TeamListViewController.swift */; };
 		9CF175AA1E845914000B42CE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF175A91E845914000B42CE /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -84,6 +86,8 @@
 		9CD3197B1EC78DE00074693F /* TopicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
 		9CD3197D1EC799320074693F /* TopicItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicItemViewController.swift; sourceTree = "<group>"; };
 		9CD3197F1EC7A4310074693F /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
+		9CD319811EC7B4D30074693F /* SaveTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveTeamViewController.swift; sourceTree = "<group>"; };
+		9CD319831EC7B7A70074693F /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9CF175A71E845863000B42CE /* TeamListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListViewController.swift; sourceTree = "<group>"; };
 		9CF175A91E845914000B42CE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AAB0E05991ECCAED3BCB814C /* Pods-SmartIndia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartIndia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartIndia/Pods-SmartIndia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 				9CD319791EC78AEE0074693F /* TopicViewController.swift */,
 				9CD3197D1EC799320074693F /* TopicItemViewController.swift */,
 				9CD3197F1EC7A4310074693F /* ConfirmationViewController.swift */,
+				9CD319811EC7B4D30074693F /* SaveTeamViewController.swift */,
+				9CD319831EC7B7A70074693F /* RegisterViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -361,6 +367,7 @@
 				9CD3197E1EC799320074693F /* TopicItemViewController.swift in Sources */,
 				9CF175A81E845863000B42CE /* TeamListViewController.swift in Sources */,
 				9CC6B9431EC715E200867D6C /* Team.swift in Sources */,
+				9CD319821EC7B4D30074693F /* SaveTeamViewController.swift in Sources */,
 				9CD3196C1EC751D40074693F /* TeamTableViewCell.swift in Sources */,
 				9CD3197A1EC78AEE0074693F /* TopicViewController.swift in Sources */,
 				9CD3197C1EC78DE00074693F /* TopicTableViewCell.swift in Sources */,
@@ -368,6 +375,7 @@
 				9CC6B92A1EC64E9F00867D6C /* NetworkManager.swift in Sources */,
 				9C8A82F91E82D2AC005A0DF1 /* TextField.swift in Sources */,
 				9CC6B92D1EC64E9F00867D6C /* Enumerators.swift in Sources */,
+				9CD319841EC7B7A70074693F /* RegisterViewController.swift in Sources */,
 				9CD319801EC7A4310074693F /* ConfirmationViewController.swift in Sources */,
 				9CC6B9321EC6FE7400867D6C /* CircularImageview.swift in Sources */,
 				9CF175AA1E845914000B42CE /* HomeViewController.swift in Sources */,

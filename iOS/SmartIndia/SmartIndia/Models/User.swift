@@ -22,7 +22,6 @@ class User : BaseRequest{
         self.init()
     }
     
-    
     override func mapping(map: Map) {
         name            <- map["name"]
         email           <- map["email"]

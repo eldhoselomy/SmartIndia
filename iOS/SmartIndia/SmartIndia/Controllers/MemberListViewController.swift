@@ -65,7 +65,7 @@ class MemberListViewController: BaseViewController {
 
     
     @IBAction func proceed(_ sender : UIButton){
-        
+        self.performSegue(withIdentifier: "SaveTeam", sender: self)
     }
     
     // MARK: - Navigation

@@ -41,6 +41,9 @@ class LoginViewController: BaseViewController {
         }
     }
     
+    @IBAction func register(_ sender:UIButton){
+        self.performSegue(withIdentifier: "RegisterVC", sender: self)
+    }
     
     override func isValid() -> Bool {
         var isValid = true

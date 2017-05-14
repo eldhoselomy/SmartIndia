@@ -21,11 +21,11 @@ class NetworkManager{
     
     private func fetchDataFromServer(requestType: HTTPMethod,url: String,parameters:[String:Any]?,headers: [String:String]? ,completion: @escaping ((JSON?)-> Void)) {
         //Network Availablity Check
-        guard Utils.isNetworkReachable() else{
-            Utils.showMessage("No internet")
-            completion(nil)
-            return
-        }
+//        guard Utils.isNetworkReachable() else{
+//            Utils.showMessage("No internet")
+//            completion(nil)
+//            return
+//        }
         //Custom manager
         let manager = Alamofire.SessionManager.default
         
@@ -89,6 +89,29 @@ class NetworkManager{
                     Utils.showMessage("Invalid Credentials")
                 case 404:
                     Utils.showMessage("User not found")
+                default:
+                    break
+                }
+            }
+            if let json = dataJSON?["user"]{
+                self.responseSerializer(dataJSON: json  , completion: completion)
+                return
+            }
+            completion(nil)
+            
+            
+        }
+    }
+    
+    // MARK: - Register
+    internal func register(request: [String:Any],completion: @escaping ((User?) -> Void)) {
+        fetchDataFromServer(requestType: .post, url: ServiceURL.Register.URL, parameters: request, headers: nil) { dataJSON in
+            if let status = dataJSON?["status"].int{
+                switch status{
+                case 400:
+                    Utils.showMessage("Oops something went wrong")
+                case 401:
+                    Utils.showMessage("User already registered")
                 default:
                     break
                 }
