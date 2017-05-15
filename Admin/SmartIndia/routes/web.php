@@ -30,3 +30,9 @@ Route::get('list_notifications', 'WebServiceController@list_notifications');
 Route::post('select_team_topic', 'WebServiceController@select_team_topic');
 Route::post('add_feedback', 'WebServiceController@add_feedback');
 
+
+//backoofice
+
+Route::get('user/login', 'BackofficeController@login');
+Route::post('user/signin', 'BackofficeController@signin');
+Route::get('user/logout', 'BackofficeController@logout');
