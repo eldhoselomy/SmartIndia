@@ -82,7 +82,7 @@ class NetworkManager{
     internal func login(request: LoginRequest,completion: @escaping ((User?) -> Void)) {
         fetchDataFromServer(requestType: .post, url: ServiceURL.Login.URL, parameters: request.getParameters(), headers: nil) { dataJSON in
             if let parentUserID = dataJSON?["parent_id"].int{
-                
+                Utils.saveParentID(id: parentUserID.description)
             }
             if let status = dataJSON?["status"].int{
                 switch status{

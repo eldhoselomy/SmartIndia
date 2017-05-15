@@ -45,12 +45,12 @@
 		9CD319821EC7B4D30074693F /* SaveTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD319811EC7B4D30074693F /* SaveTeamViewController.swift */; };
 		9CD319841EC7B7A70074693F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD319831EC7B7A70074693F /* RegisterViewController.swift */; };
 		9CD319861EC839690074693F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD319851EC839690074693F /* Notification.swift */; };
-		9CD319891EC83BC10074693F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CD319881EC83BC10074693F /* GoogleService-Info.plist */; };
 		9CD3198B1EC840E50074693F /* NotificationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD3198A1EC840E50074693F /* NotificationsListViewController.swift */; };
 		9CD3198E1EC84D570074693F /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD3198D1EC84D570074693F /* NotificationTableViewCell.swift */; };
 		9CD319901EC859560074693F /* SwiftPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD3198F1EC859560074693F /* SwiftPicker.swift */; };
 		9CD319941EC8A01E0074693F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD319931EC8A01E0074693F /* SettingsTableViewController.swift */; };
 		9CD319961EC8A36E0074693F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD319951EC8A36E0074693F /* WebViewController.swift */; };
+		9CE96B891EC99E470087B4D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CE96B881EC99E470087B4D1 /* GoogleService-Info.plist */; };
 		9CF175A81E845863000B42CE /* TeamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF175A71E845863000B42CE /* TeamListViewController.swift */; };
 		9CF175AA1E845914000B42CE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF175A91E845914000B42CE /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -96,13 +96,13 @@
 		9CD319811EC7B4D30074693F /* SaveTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveTeamViewController.swift; sourceTree = "<group>"; };
 		9CD319831EC7B7A70074693F /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9CD319851EC839690074693F /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
-		9CD319881EC83BC10074693F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9CD3198A1EC840E50074693F /* NotificationsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsListViewController.swift; sourceTree = "<group>"; };
 		9CD3198C1EC84B1E0074693F /* SmartIndia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartIndia.entitlements; sourceTree = "<group>"; };
 		9CD3198D1EC84D570074693F /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		9CD3198F1EC859560074693F /* SwiftPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftPicker.swift; sourceTree = "<group>"; };
 		9CD319931EC8A01E0074693F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		9CD319951EC8A36E0074693F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		9CE96B881EC99E470087B4D1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9CF175A71E845863000B42CE /* TeamListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListViewController.swift; sourceTree = "<group>"; };
 		9CF175A91E845914000B42CE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AAB0E05991ECCAED3BCB814C /* Pods-SmartIndia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartIndia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartIndia/Pods-SmartIndia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,7 +161,7 @@
 				9C8A82E41E82C8EE005A0DF1 /* Assets.xcassets */,
 				9C8A82E61E82C8EE005A0DF1 /* LaunchScreen.storyboard */,
 				9C8A82E91E82C8EE005A0DF1 /* Info.plist */,
-				9CD319881EC83BC10074693F /* GoogleService-Info.plist */,
+				9CE96B881EC99E470087B4D1 /* GoogleService-Info.plist */,
 			);
 			path = SmartIndia;
 			sourceTree = "<group>";
@@ -327,7 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C8A82E81E82C8EE005A0DF1 /* LaunchScreen.storyboard in Resources */,
-				9CD319891EC83BC10074693F /* GoogleService-Info.plist in Resources */,
+				9CE96B891EC99E470087B4D1 /* GoogleService-Info.plist in Resources */,
 				9C8A82E51E82C8EE005A0DF1 /* Assets.xcassets in Resources */,
 				9C8A82E31E82C8EE005A0DF1 /* Main.storyboard in Resources */,
 			);
@@ -560,6 +560,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -578,6 +579,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

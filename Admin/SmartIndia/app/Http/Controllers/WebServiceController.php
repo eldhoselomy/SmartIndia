@@ -14,6 +14,7 @@ use App\Models\Feedback;
 use App\Models\Notification;
 use App\Models\Media;
 use App\Models\DeviceNotification;
+use App\Http\Controllers\NotificationController;
 
 use Log;
 
@@ -61,7 +62,7 @@ class WebServiceController extends Controller
                 ->first();
         $parent_id = $team->user_id;
         if($team) {
-            if($team->team_token == $password) {
+            if(Hash::check($password, $team->team_token)) {
                 $status = 200;
             }else{
                 //Invalid Password
@@ -182,6 +183,9 @@ class WebServiceController extends Controller
     public function list_topics(Request $request){
         $topics = Topic::where('status', 1)
             ->get();
+        //$notifHelp = new NotificationController();
+        //$registrationIds = ['eG-M6s5Ekzk:APA91bFgqGlZGOTLFPd5vmThWw-BdbA29AoeKQ__gzO3fRDJg_IaZz1ISv7cUxcULAhe0s3o77-K1eICYlRB6aGoWQHd2OnmBrmPwRGmmBodoKKIJH-v80U364TFOSq7raxXWHjQXbEv'];
+        //$a = $notifHelp->sendNotificationsToRegisteredUsers([$registrationIds],"Admin approved your request","welcome to smart india");
         $responseArray = array('status' => 200, 'topics' => $topics);
         return response()->json($responseArray);
     }
@@ -221,7 +225,7 @@ class WebServiceController extends Controller
             if($team) {
                 $team->topic_id = $topic_id;
                 $team->team_name = $team_name;
-                $team->team_token = $request->get('team_token');
+                $team->team_token = Hash::make($request->get('team_token'));
                 $team->status = 2;
                 $status = $team->save() ? 200 : 400;
             }
