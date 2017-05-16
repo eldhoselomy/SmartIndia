@@ -142,6 +142,10 @@
 							</ul>
 
 						</li>
+                        
+                        <li class="highlight">
+							<a href={{asset('gallery/listImages')}} class="highlight"><i class="clip-images"></i> <span class="title"> Gallery </span><span class="selected"></span> </a>
+						</li>
 
 						<li class="highlight">
 							<a href="javascript:void(0)" ><i class="fa fa-comments"></i> <span class="title">Feedback</span><i class="icon-arrow"></i> <span class="selected"></span> </a>

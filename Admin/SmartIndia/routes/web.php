@@ -46,7 +46,7 @@ Route::get('users/activate/{id}','BackofficeController@activateUser');
 Route::get('listTeamDetails/{id}','BackofficeController@listTeamDetails');
 Route::get('listmembers/{id}','BackofficeController@listmembers');
 
-
+Route::get('gallery/listImages/{team}','GalleryController@getImages');
 
 Route::get('topics/list','BackofficeController@listTopics');
 Route::get('topics/data','BackofficeController@topicsData');
