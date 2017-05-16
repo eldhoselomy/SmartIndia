@@ -3,7 +3,7 @@
 		<div class="page-header">
 			<div class="user_name"></div>
 		</div>
-		
+		<div id="succMsg"></div>
 	 <div class="row">
         <div class="col-md-12">
         	<div class="" id="LocationMessage"></div>
@@ -102,47 +102,24 @@
                  if (result) {
 			$.ajax({
 				type : 'GET',
-				url : '{{asset("room/delete")}}/' + id,
+				url : '{{asset("team/delete")}}/' + id,
 				dataType : 'json',
 				success : function(data) {
-					if (data ==0){
-						var success_message = "Room contains prices.So can't delete now";
-						$('html,body').animate({
-			        			scrollTop: $("#addnewroom").offset().top},
-			        			500);
-						$('#LocationMessage').show();
-						$('#LocationMessage').removeClass().addClass('alert alert-error').html(success_message);
-						$('#LocationMessage').delay(3200).fadeOut(300);
-					}else{
-						 $('.member_table').hide();
-						var success_message = "Room deleted successfully ";
-						$('html,body').animate({
-			        			scrollTop: $("#addnewroom").offset().top},
-			        			500);
-						$('#LocationMessage').show();
-						$('#LocationMessage').removeClass().addClass('alert alert-success').html(success_message);	
-						$('#LocationMessage').delay(3200).fadeOut(300);
+					if (data ==1){
+						var message = "Team deleted successfully";
+                    	$('#succMsg').show();
+                    	$('#succMsg').removeClass().addClass('alert alert-success').html(message);
+                                                                               
+                    	$('html,body').animate({
+                        scrollTop: $(".page-header").offset().top},
+                        500);
+                    	$('#succMsg').delay(3200).fadeOut(300);
 					}
 					teamtable.ajax.reload();
 				}
 			})
 		}
 		});
-		
-		
-		$('#team-table').on('click', 'button.editor_edit', function(e) {
-			var roomid = $(this).attr('data-id');
-		
-			$.ajax({
-				type : 'POST',
-				url : '{{asset("accomodation_room/edit")}}/' + id +'/'+ roomid,
-				dataType : 'json',
-				success : function(roomdetails) {
-					console.log(roomdetails);
-				}
-			});
-		});
-
 
 
       });
@@ -170,8 +147,9 @@
 				data : null,
 				render : function(data, type, row) {
 					
-					
-						var editfield = '<a class="editor_edit btn btn-sm btn-teal open-newRoom" id="edit" data-id="roomid=' + data.id + '" data-placement="top" data-toggle="modal"  href="#responsive" ><i class="fa fa-edit"></i></a>';
+						var editurl = '{{asset("team/view")}}/' + data.id;
+
+						var editfield = '<a class="btn btn-sm btn-teal" href="'+editurl+'" id="edit" data-id="roomid=' + data.id + '" data-placement="top" data-toggle="modal"><i class="fa fa-edit"></i></a>';
 					
                    
 						var deletefield = '<button class="editor_remove btn btn-sm btn-danger" alt="Delete" title="Delete" data-id=' + data.id + '><i class="icon-remove icon-white"></i></button>';
@@ -243,16 +221,12 @@
 				render : function(data, type, row) {
 					//console.log(data.id);
 
-					var editurl = '{{asset("members/edit")}}/' + data.id;
+					var editurl = '{{asset("members/view")}}/' + data.id;
 
 						
-							var editfield = '<a class="editor_edit btn btn-sm btn-teal open-newPriceRoom" id="edit" data-id="roompriceid=' + data.id + '" data-placement="top" data-toggle="modal"  href="#responsive" ><i class="fa fa-edit"></i></a>';
-						
-                       
-							var deletefield = '<button class="editor_remove btn btn-sm btn-danger" data-id=' + data.id + '><i class="icon-remove icon-white"></i></button>';
-						
+							var editfield = '<a class="member_view btn btn-sm btn-teal" alt="view" title="view" id="edit" data-id="' + data.id + '" data-placement="top" data-toggle="modal" href="'+editurl+'" ><i class="fa fa-edit"></i></a>';
 				
-					return editfield + ' ' + deletefield;
+					return editfield ;
 
 				}
 			}
@@ -271,54 +245,6 @@
 
         }
                         
-
-		$('#member-table').on('click', 'button.editor_remove', function(e) {
-			var id = $(this).attr('data-id');
-		//	console.log(id);
-		 var result = confirm("Are you sure you want to delete this member?");
-                 if (result) {
-			$.ajax({
-				type : 'GET',
-				url : '{{asset("member/delete")}}/' + id,
-				dataType : 'json',
-				success : function(data) {
-					 if(data == 1){
-                            $('.sucmessage').hide();
-                            msg="Room price deleted successfully ";
-                     	$('#roomprice').show();
-                     	$('#roomprice').removeClass().addClass('alert alert-success').html(msg);
-        				$('#roomprice').delay(3200).fadeOut(300);
-                            	membertable.ajax.reload();
-
-                     }
-                 }
-				
-			})
-		}
-		});
-	
-	
-	
-	
-	//=====================================Iframe Room opens ==============================================
-	$(document).ready(function() {
-		$modal = $('#ajax-modal');
-		$(document).on("click", ".open-newRoom", function() {
-			var userid = $(this).data('id');
-			$('body').modalmanager('loading');
-			setTimeout(function() {
-				$modal.attr('src', '{{asset("addRoomDetails")}}/' + userid, function() {
-				});
-				//	console.log('Done');
-				$modal.modal();
-
-			});
-		});
-	});
-
-	function closeModal() {
-		$("#ajax-modal").modal('hide');
-	}
 	
 	function reloadTable() {
 		//table.ajax.reload();
@@ -329,21 +255,6 @@
 	function reloadpriceTable() {
 		membertable.ajax.reload();
 	}
-
-	function roommsg(){
-        var success_message = "Room added succesfully ";
-        $('#newroom').show();
-        $('#newroom').removeClass().addClass('alert alert-success').html(success_message);
-        $('#newroom').delay(3200).fadeOut(300);
-    }
-
-    function roompricemsg(){
-        var success_message = "Room price added succesfully ";
-        $('#roomprice').show();
-        $('#roomprice').removeClass().addClass('alert alert-success').html(success_message);
-        $('#roomprice').delay(3200).fadeOut(300);
-    }
-
 
 
 

@@ -16,11 +16,11 @@
                         <a href="{{asset('topics/list')}}">Topic</a>
                     </li>
                     <li>
-                        Edit
+                        View
                     </li>
                 </ol>
                 <div class="page-header">
-                    <h1>Edit Topic</h1>
+                    <h1>View Topic</h1>
                 </div>
                 <!-- end: PAGE TITLE & BREADCRUMB -->
             </div>
@@ -43,7 +43,7 @@
                                             {!! Form::hidden('id',$topic->id,['class'=>'form-control']) !!}
                                             <label class="control-label"> Name </label>
 
-                                            {!! Form::text('name',$topic->name,['id'=>'title','class'=>'form-control','placeholder'=>'']) !!}
+                                            {!! Form::text('name',$topic->name,['id'=>'title','class'=>'form-control','placeholder'=>'','disabled'=>true]) !!}
 
                                         </div>
                                     </div>
@@ -51,7 +51,7 @@
                                              <div class="form-group">
                                             <label class="control-label"> Subject </label>
 
-                                            {!! Form::text('subject',$topic->subject,['id'=>'subject','class'=>'form-control','placeholder'=>'']) !!}
+                                            {!! Form::text('subject',$topic->subject,['id'=>'subject','class'=>'form-control','placeholder'=>'','disabled'=>true]) !!}
 
                                         </div>
                                         </div>
@@ -67,7 +67,7 @@
 
                                                         <div class="panel-body">
                                                             <div class="form-group">
-                                                                <textarea name="description" class="ckeditor form-control" cols="10" rows="10" id="textediter">{{$topic->description}}</textarea>
+                                                                <textarea name="description" class="form-control" cols="10" rows="10" id="textediter" disabled=true>{{$topic->description}}</textarea>
                                                             </div>
 
                                                         </div>
@@ -75,21 +75,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        
+                                    </div>
 
-                                            <div class="col-md-3">
-                                                {!!Form::submit('Submit',['class'=>'btn btn-yellow btn-block'])!!}
-                                            </div>
-
-                                            <div class="col-md-3">
-
-                                                <a id="cancel" name="cancel" class="btn btn-danger">Cancel</a>
-                                            </div>
-
-                                        </div>
-</div>
-
-                        </div>
+                                    </div>
                                 </div>
                         </fieldset>
                     </div>
@@ -103,33 +92,5 @@
 
 @push('scripts')
 
-<script>
-    $(document).ready(function() {
-
-        $("#editContent").validate({
-            rules : {
-                subject:{
-                    required: true
-                },
-
-                name : {
-                    required : true,
-                    minlength: 4
-
-                },
-                texteditor : {
-                    required : true,
-                    minlength: 10
-
-                },
-            },
-            messages : {
-                name : "Please enter valid name!",
-                subject:"Please enter a valid subject",
-
-            }
-        });
-    });
-</script>
 
 @endpush

@@ -42,10 +42,15 @@ Route::get('users/list','BackofficeController@listUsers');
 Route::get('users/data','BackofficeController@getData');
 Route::get('users/delete/{id}','BackofficeController@deleteUser');
 Route::get('users/activate/{id}','BackofficeController@activateUser');
+Route::get('users/edit/{id}','BackofficeController@editUser');
+Route::post('users/update','BackofficeController@update_user');
 
 Route::get('listTeamDetails/{id}','BackofficeController@listTeamDetails');
-Route::get('listmembers/{id}','BackofficeController@listmembers');
+Route::get('team/view/{id}','BackofficeController@viewTeam');
+Route::get('team/delete/{id}','BackofficeController@deleteTeam');
 
+Route::get('listmembers/{id}','BackofficeController@listmembers');
+Route::get('members/view/{id}','BackofficeController@viewMember');
 
 
 Route::get('topics/list','BackofficeController@listTopics');
@@ -55,6 +60,7 @@ Route::post('topic/save','BackofficeController@save_topic');
 Route::get('topic/edit/{id}','BackofficeController@edit_topic');
 Route::post('topic/update','BackofficeController@update_topic');
 Route::get('topic/delete/{id}','BackofficeController@delete_topic');
+Route::get('topic/view/{id}','BackofficeController@view_topic');
 
 
 Route::get('feedback/userfeedbacklist','BackofficeController@userFeedbacklist');

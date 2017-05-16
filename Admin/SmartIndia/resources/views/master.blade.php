@@ -29,21 +29,14 @@
 		{!! HTML::style('fonts/style.css') !!}
 		{!! HTML::style('css/main.css') !!}
 		{!! HTML::style('css/main-responsive.css') !!}
-		{!! HTML::style('plugins/iCheck/skins/all.css') !!}
-		{!! HTML::style('plugins/perfect-scrollbar/src/perfect-scrollbar.css') !!}
+		
 		{!! HTML::style('css/theme_light.css', array('id' => 'skin_color')) !!}
 
 		{!! HTML::style('plugins/select2/select2.css') !!}
-		{!! HTML::style('plugins/bootstrap-fileupload/bootstrap-fileupload.min.css') !!}
-		{!! HTML::style('plugins/colorbox/example2/colorbox.css') !!}
+		
 		<!-- Datatables -->
 		{!! HTML::style('//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css') !!}
-		{!! HTML::style('plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css') !!}
-		{!! HTML::style('plugins/bootstrap-modal/css/bootstrap-modal.css') !!}
 		
-
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
 		{!! HTML::style('css/style.css') !!}
 
 		{!! HTML::style('favicon.ico', array('rel' => 'shortcut icon')) !!}
@@ -261,8 +254,6 @@
 				Main.init();
 				menuSelect("{{asset('/')}}");
 
-					App.populateFavicon();
-					App.loadqaBanner();
 				
 				function menuSelect(base_url){
 					var url = window.location.href.split('#')[0];

@@ -81,6 +81,24 @@ class BackofficeController extends Controller
         }  
     }
 
+    public function editUser($id)
+    {
+        $user = User::find($id);
+        return View('editUser')->with('user',$user);
+    }
+
+    public function update_user(Request $request)
+    {
+        $user = User::find($request->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->affiliate_id=$request->affiliate_id;
+        $user->save();
+        return redirect('users/list');
+    }
+
+
     public function listTeamDetails($id)
     {
          $team = Team::where('user_id',$id)
@@ -91,6 +109,23 @@ class BackofficeController extends Controller
         return Datatables::of($team)->make(true);
     }
 
+    public function viewTeam($id)
+    {
+        $team = Team::LeftJoin('topics','teams.topic_id','topics.id')
+                        ->where('teams.id',$id)
+                        ->select('teams.*','topics.name as team_topic','topics.id as topic_id')
+                        ->first();
+        return View('viewTeam')->with('team',$team);
+    }
+
+    public function deleteTeam($id)
+    {
+            $team = Team::find($id);
+            $team -> status = "0";
+            $team -> save();        
+            return 1;
+    
+    }
 
      public function listmembers($id)
     {
@@ -103,7 +138,11 @@ class BackofficeController extends Controller
     }
 
 
-
+    public function viewMember($id)
+    {
+        $member = Member::find($id);
+        return View('viewMember')->with('member',$member);
+    }
 
 
 
@@ -170,6 +209,12 @@ class BackofficeController extends Controller
     {
         $topic = Topic::find($id);
         return View('editTopic')->with('topic',$topic);
+    }
+
+    public function view_topic($id)
+    {
+        $topic = Topic::find($id);
+        return View('viewTopic')->with('topic',$topic);
     }
 
     public function update_topic(Request $request)
