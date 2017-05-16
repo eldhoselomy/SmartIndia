@@ -92,6 +92,41 @@ class BackofficeController extends Controller
     }
 
 
+     public function listmembers($id)
+    {
+         $member = Member::where('team_id',$id)
+         ->where('status','!=',0)
+         ->select(array('members.id','members.name','members.email','members.department'))
+         ->get() ;
+   
+        return Datatables::of($member)->make(true);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function listTopics()
     {

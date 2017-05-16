@@ -42,7 +42,11 @@ Route::get('users/list','BackofficeController@listUsers');
 Route::get('users/data','BackofficeController@getData');
 Route::get('users/delete/{id}','BackofficeController@deleteUser');
 Route::get('users/activate/{id}','BackofficeController@activateUser');
+
 Route::get('listTeamDetails/{id}','BackofficeController@listTeamDetails');
+Route::get('listmembers/{id}','BackofficeController@listmembers');
+
+
 
 Route::get('topics/list','BackofficeController@listTopics');
 Route::get('topics/data','BackofficeController@topicsData');

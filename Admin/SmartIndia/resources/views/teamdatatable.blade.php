@@ -34,6 +34,10 @@
 	
 		
 	<div class="member_table">
+
+		<div class="page-header">
+			<div class="member_name"></div>
+		</div>
 			
 	 <div class="row">
         <div class="col-md-12">
@@ -207,23 +211,22 @@
 			                    console.log(id);
 			                     var attrname = $(this).attr('data-name');                 
 			                    $(".member_table").show();
-			                    $('.roomname').html('<h2>Price list of '+attrname+'</h2>');
-			                    $("#addnewroomprice").data("id", "roomid="+id); 
-			                    
+			                    $('.member_name').html('<h2>Member list of '+attrname+'</h2>');
+			               
 			                     $('html,body').animate({
 						        scrollTop: $(".member_table").offset().top},
 						        'slow');
 
-			                     roomPriceDT(id);
+			                    memberDT(id);
 
 			 	});
 
 
 
-          function roomPriceDT(id){
+          function memberDT(id){
             membertable = $('#member-table').DataTable({
 			ajax : {
-				"url" : '{{asset("listmemberss")}}/' + id,
+				"url" : '{{asset("listmembers")}}/' + id,
 				"type" : 'Get'
 			},
 			columns : [{
@@ -240,7 +243,7 @@
 				render : function(data, type, row) {
 					//console.log(data.id);
 
-					var editurl = '{{asset("room_price/edit")}}/' + data.id;
+					var editurl = '{{asset("members/edit")}}/' + data.id;
 
 						
 							var editfield = '<a class="editor_edit btn btn-sm btn-teal open-newPriceRoom" id="edit" data-id="roompriceid=' + data.id + '" data-placement="top" data-toggle="modal"  href="#responsive" ><i class="fa fa-edit"></i></a>';
@@ -321,26 +324,6 @@
 		//table.ajax.reload();
 		teamtable.ajax.reload();
 	}
-	
-	//====================================Iframe price opens ===========================================
-	$(document).ready(function() {
-		$modal = $('#ajax-modal');
-		$(document).on("click", ".open-newPriceRoom", function() {
-			var userid = $(this).data('id');
-
-			//console.log(userid);
-
-			// create the backdrop and wait for next modal to be triggered
-			$('body').modalmanager('loading');
-			setTimeout(function() {
-				$modal.attr('src', '{{asset("addRoomPriceDetails")}}/' + userid, function() {
-				});
-				//	console.log('Done');
-				$modal.modal();
-
-			});
-		});
-	});
 
 	
 	function reloadpriceTable() {
