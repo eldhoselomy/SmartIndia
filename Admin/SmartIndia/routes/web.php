@@ -49,8 +49,12 @@ Route::get('listTeamDetails/{id}','BackofficeController@listTeamDetails');
 Route::get('team/view/{id}','BackofficeController@viewTeam');
 Route::get('team/delete/{id}','BackofficeController@deleteTeam');
 
+
 Route::get('listmembers/{id}','BackofficeController@listmembers');
 Route::get('members/view/{id}','BackofficeController@viewMember');
+
+
+Route::get('gallery/listImages/{team}','GalleryController@getImages');
 
 
 Route::get('topics/list','BackofficeController@listTopics');
