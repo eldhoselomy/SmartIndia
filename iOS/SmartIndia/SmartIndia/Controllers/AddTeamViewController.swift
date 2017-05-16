@@ -11,7 +11,7 @@ import UIKit
 class AddTeamViewController: BaseViewController {
     
     
-    @IBOutlet weak var teamNameTextField:UITextField!
+    @IBOutlet weak var teamNameTextField:Textfield!
     
 
     override func viewDidLoad() {

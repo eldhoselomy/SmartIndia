@@ -79,8 +79,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("ok")
-        FIRMessaging.messaging().subscribe(toTopic: "/topics/admin")
+        if Utils.isLogin(){
+            let topic = Utils.isAdmin() ? "/topics/admin" : "/topics/team"
+            FIRMessaging.messaging().subscribe(toTopic: topic)
+            if let token = Utils.getNotificationToken(){
+                let userID = Utils.getDefaultUserID().isEmpty ? Utils.getParrentID() : Utils.getDefaultUserID()
+                let request = [
+                    "user_id" : userID,
+                    "firebase_token" : token
+                ]
+                NetworkManager.sharedManager.registerNotification(request: request, completion: { (isComplete) in
+                    //
+                })
+            }
+        }
+        
     }
 
 }

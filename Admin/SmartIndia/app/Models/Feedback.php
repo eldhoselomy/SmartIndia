@@ -14,7 +14,7 @@ class Feedback extends BaseModel
      */
     protected $table='feedback';
     protected $fillable = [
-        'user_id', 'member_id','user_type','title','comments'
+        'user_id', 'team_id','user_type','title','comments'
     ];
 
     /**

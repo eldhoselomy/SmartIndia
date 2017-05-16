@@ -15,7 +15,7 @@ class Feedback : BaseRequest{
     dynamic var comment                     = ""
     dynamic var type                        = ""
     dynamic var userID                      = ""
-    dynamic var memberID                    = ""
+    dynamic var teamID                    = ""
     dynamic var status                      = ""
     
     required convenience init?(map: Map) {
@@ -28,7 +28,7 @@ class Feedback : BaseRequest{
         comment         <- map["comments"]
         type            <- map["user_type"]
         id              <- (map["id"],integerTransform)
-        memberID        <- (map["member_id"],integerTransform)
+        teamID        <- (map["member_id"],integerTransform)
         userID          <- (map["user_id"],integerTransform)
     }
 }

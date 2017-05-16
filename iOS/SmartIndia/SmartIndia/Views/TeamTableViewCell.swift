@@ -19,7 +19,8 @@ class TeamTableViewCell: UITableViewCell {
         didSet{
             if let team = team{
                 nameLabel.text = team.name
-                descriptionLabel.text = team.status == "2" ? "Verfied" : "Pending"
+                descriptionLabel.text = team.status == "2" ? "Verfied | \(team.teamName)" : "Pending"
+                letterButton.backgroundColor = team.status == "2" ? UIColor(red: 0, green: 0.5, blue: 0.25, alpha: 1) : letterButton.backgroundColor
                 let letter = team.name.characters.first?.description ?? "T"
                 letterButton.setTitle(letter, for: .normal)
             }

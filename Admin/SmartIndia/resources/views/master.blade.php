@@ -3,7 +3,7 @@
 <html class="ie8 no-js" lang="en"><html class="ie9 no-js" lang="en">
 <html lang="en" class="no-js">
 	<head>
-		<title>wanderfirst</title>
+		<title>Smart India</title>
 		
 		<meta charset="utf-8"/>
 		<!--[if IE]>
@@ -20,9 +20,37 @@
 		<!-- start: MAIN CSS -->
 		
 
+		
+		{!! HTML::style('css/app.css') !!}
+		
+
+		{!! HTML::style('plugins/bootstrap/css/bootstrap.min.css', array('media' => 'screen')) !!}
+		{!! HTML::style('plugins/font-awesome/css/font-awesome.min.css') !!}
+		{!! HTML::style('fonts/style.css') !!}
+		{!! HTML::style('css/main.css') !!}
+		{!! HTML::style('css/main-responsive.css') !!}
+		{!! HTML::style('plugins/iCheck/skins/all.css') !!}
+		{!! HTML::style('plugins/perfect-scrollbar/src/perfect-scrollbar.css') !!}
+		{!! HTML::style('css/theme_light.css', array('id' => 'skin_color')) !!}
+
+		{!! HTML::style('plugins/select2/select2.css') !!}
+		{!! HTML::style('plugins/bootstrap-fileupload/bootstrap-fileupload.min.css') !!}
+		{!! HTML::style('plugins/colorbox/example2/colorbox.css') !!}
+		<!-- Datatables -->
+		{!! HTML::style('//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css') !!}
+		{!! HTML::style('plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css') !!}
+		{!! HTML::style('plugins/bootstrap-modal/css/bootstrap-modal.css') !!}
+		
+
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-		{!! HTML::style('assets/css/style.css') !!}
+		{!! HTML::style('css/style.css') !!}
+
+		{!! HTML::style('favicon.ico', array('rel' => 'shortcut icon')) !!}
+
+		{!! HTML::style('plugins/DataTables/media/css/DT_bootstrap.css') !!}
+
+		{!! HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') !!}
 
 
 		@yield('head')
@@ -41,7 +69,7 @@
 					</button>
 					<!-- end: RESPONSIVE MENU TOGGLER -->
 					<!-- start: LOGO -->
-					<a class="navbar-brand" href="{{asset('/index')}}"> <img src="{{asset('/assets/images/wf-logo-30.png')}}" width: "140px;" height: "26px;" alt="wanderFirst" /> </a>
+					<a class="navbar-brand" href="{{asset('/index')}}"> <img src="{{asset('/images/logo.png')}}" width: "140px;" height: "26px;" alt="Smart India" /> </a>
 					<!-- <a class="navbar-brand" href="{{asset('/index')}}"> Wander<i class="clip-clip"></i>First </a> -->
 					<!-- end: LOGO -->
 				</div>
@@ -54,14 +82,8 @@
 						<!-- start: USER DROPDOWN -->
 						<li class="dropdown current-user">
 							<a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true"
-							href="#"> <span class="username"><?php echo $cmpname . $userName =  session('userName'); ?></span> <i class="clip-chevron-down"></i> </a>
+							href="#"> <span class="username">Admin</span> <i class="clip-chevron-down"></i> </a>
 							<ul class="dropdown-menu">
-								<li>
-									<a href={{asset('/myProfile')}}> <i class="clip-exit"></i> &nbsp;My Profile </a>
-								</li>
-								<li>
-									<a href={{asset('/change_password')}}> <i class="clip-exit"></i> &nbsp;Change Password </a>
-								</li>
 								<li>
 									<a href={{asset('/logout')}} id="logout"> <i class="clip-exit"></i> &nbsp;Log Out </a>
 								</li>
@@ -94,27 +116,45 @@
 							<a href={{asset('index')}} class="highlight"><i class="clip-home-3"></i> <span class="title"> Dashboard </span><span class="selected"></span> </a>
 						</li>						
 					
-						<li class="highlight analytics">
-							<a href="javascript:void(0)" ><i class="clip-bars"></i> <span class="title"> Google Analytics </span><i class="icon-arrow"></i> <span class="selected"></span> </a>
+						<li class="highlight">
+							<a href="javascript:void(0)" ><i class="clip-users"></i> <span class="title">Users</span><i class="icon-arrow"></i> <span class="selected"></span> </a>
 
 							<ul class="sub-menu">						
-								<li class="view">
-									<a href={{asset('analytics/view')}}> <span class="title">Analytics Data</span> </a>
+								<li class="list">
+									<a href={{asset('users/list')}}> <span class="title">User List</span> </a>
 								</li>
 								
 							</ul>
 
 						</li>
 
-						<li class="highlight sharedtours">
-							<a href="javascript:void(0)" class="highlight"><i class="clip-share"></i> <span class="title"> Shared / Wishlisted List </span><i class="icon-arrow"></i> </a>
-							<ul class="sub-menu">
-							
-								<li class="list">
-									<a href={{asset('sharedtours/list')}}> <span class="title"> Shared Tours </span> </a>
-								</li>
+						<li class="highlight">
+							<a href="javascript:void(0)" ><i class="fa fa-edit "></i> <span class="title">Topics</span><i class="icon-arrow"></i> <span class="selected"></span> </a>
 
-								</ul>
+							<ul class="sub-menu">						
+								<li class="list">
+									<a href={{asset('topics/list')}}> <span class="title">Topic List</span> </a>
+								</li>
+								<li class="add">
+									<a href={{asset('topics/add')}}> <span class="title">Add Topic</span> </a>
+								</li>
+								
+							</ul>
+
+						</li>
+
+						<li class="highlight">
+							<a href="javascript:void(0)" ><i class="fa fa-comments"></i> <span class="title">Feedback</span><i class="icon-arrow"></i> <span class="selected"></span> </a>
+
+							<ul class="sub-menu">						
+								<li class="list">
+									<a href={{asset('feedback/userfeedbacklist')}}> <span class="title">User Feedback List</span> </a>
+								</li>
+								<li class="add">
+									<a href={{asset('feedback/teamfeedbacklist')}}> <span class="title">Team Feedback List</span> </a>
+								</li>
+								
+							</ul>
 
 						</li>
 
@@ -175,9 +215,81 @@
 		</div>
 		<!-- end: FOOTER -->
 
-		{!! HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') !!}
-
 		
+		
+
+		{!! HTML::script('plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js') !!}
+
+		{!! HTML::script('plugins/blockUI/jquery.blockUI.js') !!}
+		{!! HTML::script('plugins/iCheck/jquery.icheck.min.js') !!}
+
+		{!! HTML::script('plugins/perfect-scrollbar/src/jquery.mousewheel.js') !!}
+		{!! HTML::script('plugins/perfect-scrollbar/src/perfect-scrollbar.js') !!}
+
+		{!! HTML::script('js/main.js') !!}
+
+		{!! HTML::script('plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') !!}
+
+		{!! HTML::script('plugins/less/less-1.5.0.min.js') !!}
+		{!! HTML::script('plugins/jquery-cookie/jquery.cookie.js') !!}
+		{!! HTML::script('plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js') !!}
+
+		{!! HTML::script('js/index.js') !!}
+
+		{!! HTML::script('plugins/jquery-validate/jquery.validate.min.js') !!}
+		
+		<!-- Datatables -->
+		{!! HTML::script('//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js') !!}
+		{!! HTML::script('//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') !!}
+		
+		{!! HTML::script('plugins/select2/select2.min.js') !!}
+		{!! HTML::script('js/form-validation.js') !!}
+		{!! HTML::script('plugins/summernote/build/summernote.min.js') !!}
+
+		{!! HTML::script('plugins/ckeditor/ckeditor.js') !!}
+		{!! HTML::script('plugins/ckeditor/adapters/jquery.js') !!}
+
+		{!! HTML::script('js/form-elements.js') !!}
+		{!! HTML::script('plugins/colorbox/jquery.colorbox-min.js') !!}
+
+		{!! HTML::script('js/moment.js') !!}
+		{!! HTML::script('js/script.js') !!}
+
+		<script>
+			$(document).ready(function() {
+
+				Main.init();
+				menuSelect("{{asset('/')}}");
+
+					App.populateFavicon();
+					App.loadqaBanner();
+				
+				function menuSelect(base_url){
+					var url = window.location.href.split('#')[0];
+					if(url.indexOf(base_url) > -1){
+						url = url.substring(base_url.length);
+						var sel = url.split('/');
+						$('.'+sel[0]).addClass('active open');
+						if(sel.length > 1)
+							$('.'+sel[0] +' .'+sel[1] ).addClass('active');
+					}
+					else{
+				console.log('URL not found');
+				}
+				} 
+
+
+				$('.search-select').select2();
+				$.ajaxSetup({
+					headers : {
+						'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+					}
+				});
+
+				
+			});
+
+		</script>
 
 		@stack('scripts')
 		<!-- App scripts -->

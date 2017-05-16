@@ -24,20 +24,43 @@ class LoginViewController: BaseViewController {
     
     @IBAction func login(_ sender: UIButton){
         if isValid(){
-            Utils.showProgress()
-            let loginRequest = LoginRequest(username: usernameTextField.text!, password: passwordTextField.text!)
-            NetworkManager.sharedManager.login(request: loginRequest, completion: { (user) in
-                if let user = user{
-                    if user.status == 0{
-                        self.showActionView()
-                    }else{
-                        Utils.saveUserID(id: user.id)
-                        self.performSegue(withIdentifier: "homeVC", sender: self)
-                        Utils.showMessage("Logined as \(user.name)")
-                    }
+            if usernameTextField.text!.lowercased().hasPrefix("team") && (!usernameTextField.text!.isEmail){
+                memberLogin()
+            }else{
+                collegeLogin()
+            }
+        }
+    }
+    
+    func collegeLogin(){
+        Utils.showProgress()
+        let loginRequest = LoginRequest(username: usernameTextField.text!, password: passwordTextField.text!)
+        NetworkManager.sharedManager.login(request: loginRequest, completion: { (user) in
+            if let user = user{
+                if user.status == 0{
+                    self.showActionView()
+                }else{
+                    Utils.saveUserID(id: user.id)
+                    Utils.saveUser(name: user.name, email: user.email)
+                    self.performSegue(withIdentifier: "homeVC", sender: self)
+                    Utils.showMessage("Logined as \(user.name)")
                 }
-                Utils.hideProgress()
-            })
+            }
+            Utils.hideProgress()
+        })
+    }
+    
+    func memberLogin(){
+        let loginRequest = LoginRequest(username: usernameTextField.text!, password: passwordTextField.text!)
+        Utils.showProgress()
+        NetworkManager.sharedManager.memberLogin(request: loginRequest) { (team) in
+            if let team = team{
+                Utils.saveTeamID(id: team.id)
+                Utils.saveUser(name: team.name, email: team.teamName)
+                self.performSegue(withIdentifier: "homeVC", sender: self)
+                Utils.showMessage("Logined as \(team.name)")
+            }
+            Utils.hideProgress()
         }
     }
     
@@ -47,7 +70,7 @@ class LoginViewController: BaseViewController {
     
     override func isValid() -> Bool {
         var isValid = true
-        if usernameTextField.text!.isEmail{
+        if !usernameTextField.text!.isEmpty{
             usernameTextField.setError()
         }else{
             usernameTextField.setError("Please provide a valid email")
