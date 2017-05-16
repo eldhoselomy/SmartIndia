@@ -125,4 +125,17 @@ extension UIImage {
 }
 
 
+extension String{
+    
+    var htmlAttributedString: NSAttributedString? {
+        do {
+            return try NSAttributedString(data: self.data(using: String.Encoding.unicode, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+        } catch {
+            print("HTML to attributed String coversion failed")
+            return nil
+        }
+    }
+
+}
+
 

@@ -18,7 +18,7 @@ class TopicTableViewCell: UITableViewCell {
         didSet{
             if let topic = topic{
                 nameLabel.text = topic.name
-                detailsLabel.text = topic.details
+                detailsLabel.text = (topic.details.htmlAttributedString?.string) ?? topic.details
                 
             }
         }

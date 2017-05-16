@@ -107,7 +107,7 @@ class WebServiceController extends Controller
         $user_id = $request->get('user_id');
         $teams = Team::where('user_id', $user_id)
             ->where('status',1)->get();
-        if(count($teams) >= 3){
+        if(count($teams) > 4){
             //Exceeds Limit
             $status = 401;
         }else{
@@ -186,9 +186,7 @@ class WebServiceController extends Controller
     public function list_topics(Request $request){
         $topics = Topic::where('status', 1)
             ->get();
-        //$notifHelp = new NotificationController();
-        //$registrationIds = ['eG-M6s5Ekzk:APA91bFgqGlZGOTLFPd5vmThWw-BdbA29AoeKQ__gzO3fRDJg_IaZz1ISv7cUxcULAhe0s3o77-K1eICYlRB6aGoWQHd2OnmBrmPwRGmmBodoKKIJH-v80U364TFOSq7raxXWHjQXbEv'];
-        //$a = $notifHelp->sendNotificationsToRegisteredUsers([$registrationIds],"Admin approved your request","welcome to smart india");
+        $notifHelp = new NotificationController();
         $responseArray = array('status' => 200, 'topics' => $topics);
         return response()->json($responseArray);
     }

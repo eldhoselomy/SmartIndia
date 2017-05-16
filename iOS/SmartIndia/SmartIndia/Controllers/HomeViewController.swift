@@ -29,9 +29,9 @@ class HomeViewController: BaseViewController {
 
     override func setup() {
         super.setup()
+        self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "logo_name"))
         let views = [topicView,ideaView,notificationView,feedbackView,settingsView,logoutView]
-        
-        
+
         for view in views{
             let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
             for subview in view!.subviews{

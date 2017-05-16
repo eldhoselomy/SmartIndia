@@ -23,8 +23,9 @@ class Constants{
     static let displayTimeFormat = "hh mm a"
     static var dateFormatForFileName = "yyyyMMddHHmmssSSS"
     
-    static var baseURL = "http://192.168.1.101:8000/"//"http://127.0.0.1:8000/"
+    static var baseURL = "http://192.168.0.116/smartindia/Admin/SmartIndia/public/"
     
+    //"http://127.0.0.1:8000/"//"http://192.168.0.100:8000/"//"http://192.168.0.116/smartindia/Admin/SmartIndia/public/"
     
     
     

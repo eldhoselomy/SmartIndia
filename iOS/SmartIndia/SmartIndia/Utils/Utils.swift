@@ -200,8 +200,8 @@ class Utils{
     
     static func getNotificationToken()->String?{
         let token = FIRInstanceID.instanceID().token()
-        if let _ = token{
-            return ("\(token)")
+        if let token = token{
+            return token
         }
         return nil
     }

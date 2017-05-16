@@ -26,7 +26,7 @@ class WebViewController: BaseViewController {
         super.loadView()
         let config = WKWebViewConfiguration()
         webView = WKWebView(
-            frame: CGRect(x: 0, y: 64, width: self.view.frame.width, height: self.view.frame.height - 64),
+            frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height),
             configuration: config
         )
         self.view.addSubview(webView!)
