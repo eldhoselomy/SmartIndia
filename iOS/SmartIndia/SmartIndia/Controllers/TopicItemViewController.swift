@@ -27,8 +27,12 @@ class TopicItemViewController: BaseViewController {
         super.setup()
         if let topic = topic{
             titleLabel.text = topic.name
-            textView.text = topic.details
             self.title = topic.subject
+            if let htmlString = topic.details.htmlAttributedString{
+                textView.attributedText = htmlString
+            }else{
+                textView.text = topic.details
+            }
         }
     }
     

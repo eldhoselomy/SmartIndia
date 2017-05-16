@@ -57,7 +57,7 @@ class MemberViewController: BaseViewController {
     override func setup() {
         super.setup()
         self.title = "Profile"
-        textFields =  [nameTextField,emailTextField,phoneTextField,dobTextField,genderTextField,departmentTextField,semesterTextField,registerNumberTextField]
+        textFields =  [nameTextField,emailTextField,phoneTextField,dobTextField,departmentTextField,semesterTextField,registerNumberTextField]
         if let team = team{
             teamNameLabel.text = team.name
         }
@@ -94,6 +94,8 @@ class MemberViewController: BaseViewController {
         let title = editable ? "Save" : "Edit"
         saveButton.setTitle(title, for: .normal)
         dobPlaceholder.isUserInteractionEnabled = editable
+        maleLabel.isUserInteractionEnabled = editable
+        femaleLabel.isUserInteractionEnabled = editable
         for view in textFields{
             view.isEnabled = editable
         }

@@ -44,7 +44,7 @@ class MemberListViewController: BaseViewController {
                     self.navigationItem.rightBarButtonItem = nil
                 }
                 if let team = self.team{
-                    self.proceedView.isHidden = !(team.status == "0" && self.members.count == 5)
+                    self.proceedView.isHidden = !(team.status == "1" && self.members.count == 5)
                     self.mediaView.isHidden = !(team.status == "2" && self.members.count == 5)
                 }
             }

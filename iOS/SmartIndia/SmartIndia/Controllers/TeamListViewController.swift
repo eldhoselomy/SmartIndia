@@ -36,7 +36,7 @@ class TeamListViewController: BaseViewController {
         NetworkManager.sharedManager.listTeam(request: request) { (teams) in
             if let teams = teams{
                 self.teams = teams
-                if self.teams.count > 2 || (!Utils.isAdmin()){
+                if self.teams.count > 4 || (!Utils.isAdmin()){
                     self.navigationItem.rightBarButtonItem = nil
                 }
                 self.tableView.reloadData()

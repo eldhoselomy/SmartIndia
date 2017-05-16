@@ -43,6 +43,7 @@ class LoginViewController: BaseViewController {
                     Utils.saveUserID(id: user.id)
                     Utils.saveUser(name: user.name, email: user.email)
                     self.performSegue(withIdentifier: "homeVC", sender: self)
+                    self.registerNotifications()
                     Utils.showMessage("Logined as \(user.name)")
                 }
             }
@@ -58,9 +59,23 @@ class LoginViewController: BaseViewController {
                 Utils.saveTeamID(id: team.id)
                 Utils.saveUser(name: team.name, email: team.teamName)
                 self.performSegue(withIdentifier: "homeVC", sender: self)
+                self.registerNotifications()
                 Utils.showMessage("Logined as \(team.name)")
             }
             Utils.hideProgress()
+        }
+    }
+    
+    func registerNotifications(){
+        if let token = Utils.getNotificationToken(){
+            let userID = Utils.getDefaultUserID().isEmpty ? Utils.getParrentID() : Utils.getDefaultUserID()
+            let request = [
+                "user_id" : userID,
+                "firebase_token" : token
+            ]
+            NetworkManager.sharedManager.registerNotification(request: request, completion: { (isComplete) in
+                Utils.showMessage("Registered for notifications")
+            })
         }
     }
     

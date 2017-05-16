@@ -38,7 +38,8 @@ class RegisterViewController: BaseViewController {
         if isValid(){
             Utils.showProgress()
             NetworkManager.sharedManager.register(request: getRegisterRequest(), completion: { (user) in
-                if let _ = user{
+                if let user = user{
+                    self.registerNotifications(id: user.id)
                     self.showActionView()
                 }
                 Utils.hideProgress()
@@ -94,6 +95,18 @@ class RegisterViewController: BaseViewController {
         user.affiliateID = affiliateTextField.text!
         let result =  Mapper().toJSON(user)
         return result
+    }
+    
+    func registerNotifications(id:String){
+        if let token = Utils.getNotificationToken(){
+            let request = [
+                "user_id" : id,
+                "firebase_token" : token
+            ]
+            NetworkManager.sharedManager.registerNotification(request: request, completion: { (isComplete) in
+                Utils.showMessage("Registered for notifications")
+            })
+        }
     }
     
     /*

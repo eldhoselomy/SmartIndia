@@ -23,8 +23,8 @@ const API_ACCESS_KEY = 'AAAAlPoaRKQ:APA91bF6tDr4DBycWplHA1fwnHDNWONH7ktrthdQT1n2
 const Topics = array
         (
 	       'ADMIN' 	=> '/topics/admin',
-	       'MEMBER'		=> '/topics/member',
-            'ALL' => "'admin' in topics || 'member' in topics"
+	       'TEAM'		=> '/topics/team',
+            'ALL' => "'admin' in topics || 'team' in topics"
         );
 //======================================================================
 // Send Notification to user Segments
