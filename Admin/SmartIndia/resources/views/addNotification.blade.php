@@ -1,7 +1,6 @@
 @extends('master')
 
 @section('head')
-{!! HTML::style('assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css') !!}
 @stop
 
 @section('content')

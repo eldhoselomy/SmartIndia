@@ -48,7 +48,7 @@
                 
                 var data = $(this).val();
                 console.log(data);
-                window.location = "/gallery/listImages/"+data;
+                window.location.href = "{{asset('gallery/listImages')}}/"+data;
             });
         });
 

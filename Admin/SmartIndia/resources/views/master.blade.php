@@ -243,7 +243,6 @@
 
 		{!! HTML::script('plugins/less/less-1.5.0.min.js') !!}
 		{!! HTML::script('plugins/jquery-cookie/jquery.cookie.js') !!}
-		{!! HTML::script('plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js') !!}
 
 		{!! HTML::script('js/index.js') !!}
 
@@ -255,15 +254,12 @@
 		
 		{!! HTML::script('plugins/select2/select2.min.js') !!}
 		{!! HTML::script('js/form-validation.js') !!}
-		{!! HTML::script('plugins/summernote/build/summernote.min.js') !!}
 
 		{!! HTML::script('plugins/ckeditor/ckeditor.js') !!}
 		{!! HTML::script('plugins/ckeditor/adapters/jquery.js') !!}
 
 		{!! HTML::script('js/form-elements.js') !!}
-		{!! HTML::script('plugins/colorbox/jquery.colorbox-min.js') !!}
 
-		{!! HTML::script('js/moment.js') !!}
 		{!! HTML::script('js/script.js') !!}
 
 		<script>
