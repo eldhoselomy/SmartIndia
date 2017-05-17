@@ -137,7 +137,7 @@
 						</li>
                         
                         <li class="highlight">
-							<a href={{asset('gallery/listImages')}} class="highlight"><i class="clip-images"></i> <span class="title"> Gallery </span><span class="selected"></span> </a>
+							<a href={{asset('gallery/listImages/all')}} class="highlight"><i class="clip-images"></i> <span class="title"> Gallery </span><span class="selected"></span> </a>
 						</li>
 
 						<li class="highlight">

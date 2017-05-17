@@ -9,8 +9,8 @@
         </div>
         <div class="panel-body">
             <div class="panel panel-heading">
-                {{ Form::open(array('url' => 'gallery/listImages/')) }}
-                    {{ Form::select('team',array('default'=>'All')+$teams) }}
+                {{ Form::open() }}
+                    {{ Form::select('team',array('default'=>$selectedTeam)+$teams,null,array('id'=>'teamSelected')) }}
                 {{ Form::close() }}
             </div>
 
@@ -37,7 +37,20 @@
         <b>No Images Found</b>
             </div>
     	@endif
-
-
     </div>
 @stop
+
+@push('scripts')
+        <script>
+        $(document).ready(function() {
+            
+            $('#teamSelected').change(function() {
+                
+                var data = $(this).val();
+                console.log(data);
+                window.location = "/gallery/listImages/"+data;
+            });
+        });
+
+        </script>
+@endpush

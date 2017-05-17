@@ -15,19 +15,20 @@ class GalleryController extends Controller
 {
     public function getImages($team){
         
-        $teamList   =   $this->getTeams();
+        $teamList       =   $this->getTeams($team);
         
         if($team    ==  "all"){
-            
-            $imageList  =   $this->getAllImages();
+            $selectedTeam   =   'All';
+            $imageList      =   $this->getAllImages();
             
         }else{
-            
+            $selectedTeam   =   $this->getTeamName($team);
             $imageList  =   $this->getImagesByTeam($team);
-            
+            $teamList["all"]='All';
         }
         
         return View('gallery')
+              ->with('selectedTeam',$selectedTeam)
               ->with('imageList',$imageList)
               ->with('teams',$teamList);
     }
@@ -75,26 +76,33 @@ class GalleryController extends Controller
         return $imageList;
     }
     
-    private function getTeams(){
+    private function getTeams($teamSelected){
         
         $teams      =   Team::LeftJoin('media','media.team_id','=','teams.id')
                         ->select('teams.id','teams.name')
                         ->get()
                         ->toArray();
         
-//        $teamList   =   array();
-//        
-//        foreach($teams as $team){
-//            if(!in_array(array("teamId"    =>  $team["id"],
-//                            "teamName"  =>  $team["team_name"]),$teamList)){
-//                array_push($teamList,
-//                      array("teamId"    =>  $team["id"],
-//                            "teamName"  =>  $team["team_name"]));    
-//            }
-//            
-//        }
-        Log::info(json_encode($teams));
-        return $teams;
+        $teamList   =   array();
+        
+        foreach($teams as $team){
+            
+            if(!array_key_exists($team["id"],$teamList) && $team["id"]!=$teamSelected){
+                $teamList[$team["id"]]  =   $team["name"];
+            }
+            
+        }
+        Log::info(json_encode($teamList));
+        return $teamList;
+    }
+    
+    private function getTeamName($teamId){
+        $teamSelected   =   Team::where("id",$teamId)                                    
+                                 ->get();
+        
+        $teamName       =   $teamSelected[0]["name"];
+        
+        return $teamName;
     }
     
 }
