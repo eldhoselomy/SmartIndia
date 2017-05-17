@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->tinyInteger('type')->nullable()->default(1);
+            $table->string('remember_token')->nullable();
             $table->string('name');
             $table->string('phone');
             $table->string('affiliate_id');
