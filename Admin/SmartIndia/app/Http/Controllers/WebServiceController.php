@@ -186,7 +186,7 @@ class WebServiceController extends Controller
     public function list_topics(Request $request){
         $topics = Topic::where('status', 1)
             ->get();
-        $notifHelp = new NotificationController();
+        
         $responseArray = array('status' => 200, 'topics' => $topics);
         return response()->json($responseArray);
     }

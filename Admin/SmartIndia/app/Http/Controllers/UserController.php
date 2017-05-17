@@ -36,7 +36,7 @@ class UserController extends Controller
         Log::info('ajoooo');
         return view('login');
     }
-    public function signin(Request $request)
+    public function signin(Guard $auth,Request $request)
     {
         $email = $request->get('email');
         $password = $request->get('password');
@@ -56,11 +56,15 @@ class UserController extends Controller
                 return view('index');
                 
             }else{
-             return 401;   
+                 return redirect('user/login')->withErrors([
+                'email' => 'The credentials you entered did not match our records. Try again?',
+                ]);    
             }
   
         }else{
-           return 400;
+            return redirect('user/login')->withErrors([
+                'email' => 'The credentials you entered did not match our records. Try again?',
+                ]); 
         }
     }
 

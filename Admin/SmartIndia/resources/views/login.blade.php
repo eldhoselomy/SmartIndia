@@ -17,7 +17,14 @@
     <div class="login">
       <div class="login__check"></div>
       <div class="login__form">
+        @foreach($errors->all() as $error)
+            <div class="errorHandler alert alert-danger" style="font-size: 14px;color: rgb(181, 3, 3);">
+                {!!$error!!}
+            </div>
+        @endforeach
          {!!  Form::open(array('url'=>'user/signin','method'=>'POST'))  !!}
+
+         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
         <div class="login__row">
           <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
             <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />

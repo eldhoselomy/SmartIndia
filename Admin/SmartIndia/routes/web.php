@@ -75,6 +75,14 @@ Route::get('feedback/delete/{id}','BackofficeController@delete_feedback');
 Route::get('feedback/view/{id}','BackofficeController@view_feedback');
 
 
+Route::get('notification/list','BackofficeController@listNotifications');
+Route::get('notification/data','BackofficeController@notificationsData');
+Route::get('notification/add','BackofficeController@add_notification');
+Route::post('notification/save','BackofficeController@save_notification');
+Route::get('notification/delete/{id}','BackofficeController@delete_notification');
+Route::get('notification/edit/{id}','BackofficeController@edit_notification');
+Route::post('notification/update','BackofficeController@update_notification');
+
 Route::post('push_image', 'WebServiceController@push_image');
 Route::post('register_notifications', 'WebServiceController@register_notifications');
 Route::post('unregister_notifications', 'WebServiceController@unregister_notifications');

@@ -120,12 +120,7 @@
                                 	 var message = "User deleted successfully";
                                 	 $('#msg').show();
                                 	$('#msg').removeClass().addClass('alert alert-success').html(message);
-                                }else if (data ==0){
-                                	var message = "You can't delete yourself";
-                                	$('#msg').show();
-                               		 $('#msg').removeClass().addClass('alert alert-danger').html(message);
-                                }
-                                                           
+                                }                        
                                 $('html,body').animate({
                                     scrollTop: $(".page-header").offset().top},
                                     500);
@@ -154,12 +149,7 @@
                                      var message = "User activated successfully";
                                      $('#msg').show();
                                     $('#msg').removeClass().addClass('alert alert-success').html(message);
-                                }else if (data ==0){
-                                    var message = "You can't delete yourself";
-                                    $('#msg').show();
-                                     $('#msg').removeClass().addClass('alert alert-danger').html(message);
-                                }
-                                                           
+                                }                                                           
                                 $('html,body').animate({
                                     scrollTop: $(".page-header").offset().top},
                                     500);

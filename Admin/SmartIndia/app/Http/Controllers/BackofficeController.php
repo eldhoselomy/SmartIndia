@@ -17,6 +17,8 @@ use Auth;
 use Illuminate\Contracts\Auth\Guard;
 use Validator;
 use App\Http\Controllers\Controller;
+use App\Models\DeviceNotification;
+use App\Http\Controllers\NotificationController;
 
 use Yajra\Datatables\Datatables;
 
@@ -70,15 +72,25 @@ class BackofficeController extends Controller
     }
     public function activateUser($id)
     {
-        if($id != Auth::user()->id){
             $user = User::find($id);
             $user -> status = "1";
-            $user -> save();        
+            $user -> save();
+            $notificationArry = array();
+            $notifications = DeviceNotification::where('user_id',$id)
+                                        ->where('status',1)
+                                        ->select('firebase_token')
+                                        ->get();
+            foreach ($notifications as $notification) {
+                array_push($notificationArry, $notification->firebase_token);
+            }
+            Log::info($notificationArry);
+            $notifHelp = new NotificationController();
+            $title = 'Account activated';
+            $msg = 'Your Smart India account is activated and ready to use.';
+            if(!empty($notificationArry))
+                $notificationResponse    =   $notifHelp->sendNotificationsToRegisteredUsers($notificationArry,$title,$msg);        
             return 1;
-            
-        }else{
-            return 0;
-        }  
+        
     }
 
     public function editUser($id)
@@ -312,6 +324,79 @@ class BackofficeController extends Controller
         Log::info($feedback);
         return View('viewFeedback')->with('feedback',$feedback);
     }
+
+
+
+
+     public function listNotifications()
+    {
+        Log::info("inside user list");
+        $user = User::find(Auth::id()); 
+        return View('notificationlist')->with('user',$user);
+    }
+
+    public function notificationsData()
+    {
+         $notifications = Notification::where('status',1)
+         ->select(array('notifications.id','notifications.title','notifications.notification_type','notifications.status'))
+         ->get() ;
+   
+        return Datatables::of($notifications)->make(true);  
+      
+    }
+
+    public function add_notification()
+    {
+        Log::info("inside user list");
+        $user = User::find(Auth::id()); 
+        $type = array('Select Notification Type','General','News','Result','Other');
+        return View('addNotification')->with('user',$user)->with('type',$type);
+    }
+
+    public function save_notification(Request $request)
+    {
+        $notification = new Notification();
+        Log::info($request);
+        $type = array('Select Notification Type','General','News','Result','Other');
+        $notification->title = $request->title;
+        $notification->notification_type= $type[$request->notification_type];
+        $notification->notification_url= $request->notification_url;
+        $notification->description =$request->description;
+        $notification->status = '1';
+        $notification->save ();
+        return 1;
+    }
+
+    public function edit_notification($id)
+    {
+        $notification = Notification::find($id);
+        $type = array('Select Notification Type','General','News','Result','Other');
+        $key = array_keys($type,$notification->notification_type);
+        return View('editNotification')->with('notification',$notification)->with('type',$type)->with('notikey',$key);
+    }
+
+     public function update_notification(Request $request)
+    {
+        $notification = Notification::find($request->id);
+        $type = array('Select Notification Type','General','News','Result','Other');
+        $notification->title = $request->title;
+        $notification->notification_type= $type[$request->notification_type];
+        $notification->notification_url= $request->notification_url;
+        $notification->description =$request->description;
+        $notification->save();
+        return redirect('notification/list');
+    }
+
+    public function delete_notification($id)
+    {
+
+        $notification = Notification::find($id);
+        $notification -> status = "0";
+        $notification -> save();        
+        return 1;
+        
+    }
+
 
 
     

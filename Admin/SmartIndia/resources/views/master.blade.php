@@ -62,7 +62,7 @@
 					</button>
 					<!-- end: RESPONSIVE MENU TOGGLER -->
 					<!-- start: LOGO -->
-					<a class="navbar-brand" href="{{asset('/index')}}"> <img src="{{asset('/images/logo.png')}}" width: "140px;" height: "26px;" alt="Smart India" /> </a>
+					<a class="navbar-brand" href="{{asset('/index')}}"> <img src="{{asset('/images/logo.png')}}" width=140 alt="Smart India" /> </a>
 					<!-- <a class="navbar-brand" href="{{asset('/index')}}"> Wander<i class="clip-clip"></i>First </a> -->
 					<!-- end: LOGO -->
 				</div>
@@ -149,6 +149,20 @@
 								</li>
 								<li class="add">
 									<a href={{asset('feedback/teamfeedbacklist')}}> <span class="title">Team Feedback List</span> </a>
+								</li>
+								
+							</ul>
+
+						</li>
+						<li class="highlight">
+							<a href="javascript:void(0)" ><i class="fa fa-bell"></i> <span class="title">Notifications</span><i class="icon-arrow"></i> <span class="selected"></span> </a>
+
+							<ul class="sub-menu">						
+								<li class="list">
+									<a href={{asset('notification/list')}}> <span class="title">Notifications List</span> </a>
+								</li>
+								<li class="add">
+									<a href={{asset('notification/add')}}> <span class="title">Add Notifications</span> </a>
 								</li>
 								
 							</ul>
