@@ -114,8 +114,7 @@
                             url:"{{asset('users/delete')}}/"+id,
                             dataType:'json',
                             success: function(data) {
-                                console.log(data);
-                                table.ajax.reload();
+                                console.log(data);                                
                                 if(data ==1){
                                 	 var message = "User deleted successfully";
                                 	 $('#msg').show();
@@ -125,6 +124,7 @@
                                     scrollTop: $(".page-header").offset().top},
                                     500);
                                 $('#msg').delay(3200).fadeOut(300);
+                                table.ajax.reload();
                             }
 
                         })
@@ -143,8 +143,7 @@
                             url:"{{asset('users/activate')}}/"+id,
                             dataType:'json',
                             success: function(data) {
-                                console.log(data);
-                                table.ajax.reload();
+                                console.log(data);                                
                                 if(data ==1){
                                      var message = "User activated successfully";
                                      $('#msg').show();
@@ -154,6 +153,7 @@
                                     scrollTop: $(".page-header").offset().top},
                                     500);
                                 $('#msg').delay(3200).fadeOut(300);
+                                table.ajax.reload();
                             }
 
                         })

@@ -109,7 +109,7 @@
 							<a href={{asset('index')}} class="highlight"><i class="clip-home-3"></i> <span class="title"> Dashboard </span><span class="selected"></span> </a>
 						</li>						
 					
-						<li class="highlight">
+						<li class="highlight users">
 							<a href="javascript:void(0)" ><i class="clip-users"></i> <span class="title">Users</span><i class="icon-arrow"></i> <span class="selected"></span> </a>
 
 							<ul class="sub-menu">						
@@ -121,7 +121,7 @@
 
 						</li>
 
-						<li class="highlight">
+						<li class="highlight topics">
 							<a href="javascript:void(0)" ><i class="fa fa-edit "></i> <span class="title">Topics</span><i class="icon-arrow"></i> <span class="selected"></span> </a>
 
 							<ul class="sub-menu">						
@@ -136,11 +136,11 @@
 
 						</li>
                         
-                        <li class="highlight">
+                        <li class="highlight gallery">
 							<a href={{asset('gallery/listImages/all')}} class="highlight"><i class="clip-images"></i> <span class="title"> Gallery </span><span class="selected"></span> </a>
 						</li>
 
-						<li class="highlight">
+						<li class="highlight feedback">
 							<a href="javascript:void(0)" ><i class="fa fa-comments"></i> <span class="title">Feedback</span><i class="icon-arrow"></i> <span class="selected"></span> </a>
 
 							<ul class="sub-menu">						
@@ -154,7 +154,7 @@
 							</ul>
 
 						</li>
-						<li class="highlight">
+						<li class="highlight notification">
 							<a href="javascript:void(0)" ><i class="fa fa-bell"></i> <span class="title">Notifications</span><i class="icon-arrow"></i> <span class="selected"></span> </a>
 
 							<ul class="sub-menu">						
@@ -243,7 +243,6 @@
 
 		{!! HTML::script('plugins/less/less-1.5.0.min.js') !!}
 		{!! HTML::script('plugins/jquery-cookie/jquery.cookie.js') !!}
-		{!! HTML::script('plugins/bootstrap-colorpalette/js/bootstrap-colorpalette.js') !!}
 
 		{!! HTML::script('js/index.js') !!}
 
@@ -255,15 +254,12 @@
 		
 		{!! HTML::script('plugins/select2/select2.min.js') !!}
 		{!! HTML::script('js/form-validation.js') !!}
-		{!! HTML::script('plugins/summernote/build/summernote.min.js') !!}
 
 		{!! HTML::script('plugins/ckeditor/ckeditor.js') !!}
 		{!! HTML::script('plugins/ckeditor/adapters/jquery.js') !!}
 
 		{!! HTML::script('js/form-elements.js') !!}
-		{!! HTML::script('plugins/colorbox/jquery.colorbox-min.js') !!}
 
-		{!! HTML::script('js/moment.js') !!}
 		{!! HTML::script('js/script.js') !!}
 
 		<script>

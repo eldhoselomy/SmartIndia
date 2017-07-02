@@ -102,5 +102,12 @@
 @stop
 
 @push('scripts')
+<script>
+    $(document).ready(function() {
+
+        $("#cancel").click(function() {
+            window.location.href = "{{asset('users/list')}}";
+        });
+</script>
 
 @endpush

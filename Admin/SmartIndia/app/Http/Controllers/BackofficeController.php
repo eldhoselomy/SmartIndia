@@ -51,6 +51,7 @@ class BackofficeController extends Controller
         
         Log::info("-----------------------user iif -----------------------------");
          $user = User::where('status','!=',2)
+         ->where('type',1)
          ->select(array('users.id','users.email','users.name','users.status'))
          ->get() ;
    
@@ -75,6 +76,8 @@ class BackofficeController extends Controller
             $user = User::find($id);
             $user -> status = "1";
             $user -> save();
+            try{
+
             $notificationArry = array();
             $notifications = DeviceNotification::where('user_id',$id)
                                         ->where('status',1)
@@ -89,6 +92,12 @@ class BackofficeController extends Controller
             $msg = 'Your Smart India account is activated and ready to use.';
             if(!empty($notificationArry))
                 $notificationResponse    =   $notifHelp->sendNotificationsToRegisteredUsers($notificationArry,$title,$msg);        
+            
+            }
+            catch(\Exception $e)
+            {
+                return e;
+            }
             return 1;
         
     }
