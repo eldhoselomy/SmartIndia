@@ -28,7 +28,7 @@ class Feedback : BaseRequest{
         comment         <- map["comments"]
         type            <- map["user_type"]
         id              <- (map["id"],integerTransform)
-        teamID        <- (map["member_id"],integerTransform)
+        teamID        <- (map["team_id"],integerTransform)
         userID          <- (map["user_id"],integerTransform)
     }
 }

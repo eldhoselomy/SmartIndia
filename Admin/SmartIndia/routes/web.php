@@ -11,12 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('user/test', 'LoginController@test');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//Route::get('user/test', 'LoginController@test');
 
 //Service 
+
 Route::post('login', 'WebServiceController@login');
 Route::post('member_login', 'WebServiceController@member_login');
 Route::post('register', 'WebServiceController@register');
@@ -33,7 +34,7 @@ Route::post('add_feedback', 'WebServiceController@add_feedback');
 
 
 //backoofice
-
+Route::get('/', 'UserController@login');
 Route::get('user/login', 'UserController@login');
 Route::post('user/signin', 'UserController@signin');
 Route::get('logout', 'UserController@logout');

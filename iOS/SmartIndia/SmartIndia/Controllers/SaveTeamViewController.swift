@@ -119,7 +119,10 @@ class SaveTeamViewController: BaseViewController {
 
 extension SaveTeamViewController : SwiftPickerDelegate{
     func selectedItemAtIndex(_ swiftPicker: SwiftPicker, item: String, index: Int) {
-        topicTextField.text = item
-        selectedTopic = topics[index]
+        if index < topics.count{
+            topicTextField.text = item
+            selectedTopic = topics[index]
+        }
+        
     }
 }

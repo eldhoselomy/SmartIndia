@@ -25,13 +25,6 @@ class BaseRequest : Mappable{
         id <- map["id"]
     }
     
-    internal static func getGIN(value:String)->String{
-        let str : NSMutableString = NSMutableString(string: value)
-        let index = value.characters.count/2
-        str.insert(" ", at: index)
-        return str as String
-    }
-    
 }
 
 
