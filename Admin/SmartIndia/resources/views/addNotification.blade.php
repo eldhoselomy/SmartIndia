@@ -42,7 +42,7 @@
                             <div class="" id="AccoMessage"></div>
                             <div class="row">
                                 <div class="col-md-12">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
 
                                     <div class="form-group">
 
@@ -52,7 +52,7 @@
 
                                     </div>
                                     </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
 
                                         <label class="control-label"> Notification Type <span class="required">*</span> </label>
@@ -61,7 +61,11 @@
                                         
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
                                     <div class="form-group">
 
                                         <label class="control-label">Notification Url </label>
@@ -69,7 +73,19 @@
                                         {!! Form::text('notification_url',null,['id'=>'notification_url','class'=>'form-control','placeholder'=>'Notification Url']) !!}
 
                                     </div>
-                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="form-group">
+
+                                        <label class="control-label">Notification send to</label>
+                                        <div class="control-label">College
+                                            {{ Form::checkbox('College', 1, null, ['class' => '']) }}
+                                        </div>
+                                        <div class="control-label">Member
+                                            {{ Form::checkbox('member', 1, null, ['class' => '']) }}
+                                        </div>
+
+                                    </div>
                             </div>
                         </div>
                             <div class="row">

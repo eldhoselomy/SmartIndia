@@ -106,6 +106,10 @@
 <script>
     $(document).ready(function() {
 
+        $("#cancel").click(function() {
+            window.location.href = "{{asset('topics/list')}}";
+        });
+        
         $("#editContent").validate({
             rules : {
                 subject:{

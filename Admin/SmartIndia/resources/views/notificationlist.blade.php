@@ -21,7 +21,7 @@
 
                 </ol>
                 <div class="page-header">
-                    <h1 style="float:left">Topics</h1>
+                    <h1 style="float:left">Notification</h1>
                     <div align="right">
                         <a href="{{asset('notification/add')}}" class="btn button_color"> Add Notification</a>
                     </div> 

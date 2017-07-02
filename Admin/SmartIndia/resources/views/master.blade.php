@@ -109,7 +109,7 @@
 							<a href={{asset('index')}} class="highlight"><i class="clip-home-3"></i> <span class="title"> Dashboard </span><span class="selected"></span> </a>
 						</li>						
 					
-						<li class="highlight">
+						<li class="highlight users">
 							<a href="javascript:void(0)" ><i class="clip-users"></i> <span class="title">Users</span><i class="icon-arrow"></i> <span class="selected"></span> </a>
 
 							<ul class="sub-menu">						
@@ -121,7 +121,7 @@
 
 						</li>
 
-						<li class="highlight">
+						<li class="highlight topics">
 							<a href="javascript:void(0)" ><i class="fa fa-edit "></i> <span class="title">Topics</span><i class="icon-arrow"></i> <span class="selected"></span> </a>
 
 							<ul class="sub-menu">						
@@ -136,11 +136,11 @@
 
 						</li>
                         
-                        <li class="highlight">
+                        <li class="highlight gallery">
 							<a href={{asset('gallery/listImages/all')}} class="highlight"><i class="clip-images"></i> <span class="title"> Gallery </span><span class="selected"></span> </a>
 						</li>
 
-						<li class="highlight">
+						<li class="highlight feedback">
 							<a href="javascript:void(0)" ><i class="fa fa-comments"></i> <span class="title">Feedback</span><i class="icon-arrow"></i> <span class="selected"></span> </a>
 
 							<ul class="sub-menu">						
@@ -154,7 +154,7 @@
 							</ul>
 
 						</li>
-						<li class="highlight">
+						<li class="highlight notification">
 							<a href="javascript:void(0)" ><i class="fa fa-bell"></i> <span class="title">Notifications</span><i class="icon-arrow"></i> <span class="selected"></span> </a>
 
 							<ul class="sub-menu">						
