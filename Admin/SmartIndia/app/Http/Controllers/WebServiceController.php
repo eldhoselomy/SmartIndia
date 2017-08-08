@@ -34,7 +34,8 @@ class WebServiceController extends Controller
         $password = $request->get('password');
         $user = User::where('email', $email)
                 ->first();
-        
+        Log::info("password enterd",[$password]);
+        Log::info("password saved",[$user->password]);
         if($user) {
             if(Hash::check($password, $user->password)) {
                 $status = 200;
@@ -83,6 +84,7 @@ class WebServiceController extends Controller
     public function register(Request $request) {
         $email = $request->get('email');
         $password = $request->get('password');
+        Log::info("password from ios",[$password]);
         $user = User::where('email', $email)->first();
         if ($user) {
             // User already exists
@@ -93,6 +95,8 @@ class WebServiceController extends Controller
             $user->status=0;
             $user->password=Hash::make($password);
             $status = $user->save() ? 200 : 400;
+            Log::info("password saved",[$password]);
+            Log::info("password  before saved",[$user->password]);
         }
         $responseArray = $status == 200 ? array('status' => 200, 'user' => $user) : array('status' => $status);
         return response()->json($responseArray);

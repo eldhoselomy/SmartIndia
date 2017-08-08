@@ -25,6 +25,7 @@ class User : BaseRequest{
     override func mapping(map: Map) {
         name            <- map["name"]
         email           <- map["email"]
+        password        <- map["password"]
         mobile          <- map["phone"]
         affiliateID     <- map["affiliate_id"]
         id              <- (map["id"],integerTransform)
